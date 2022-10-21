@@ -26,6 +26,10 @@ class atribute{
     int defending;
     int passing;
     int strenght, dribling;
+public:
+    atribute(){
+        std::cout<<"contructor fara param.\n";
+    }
     atribute(int a, int d, int p, int s, int drib){
         attacking=a;
         defending=d;
