@@ -48,6 +48,8 @@
 <!-- - [ ] o specializare pe funcție/clasă șablon -->
 - [ ] tag de `git`: de exemplu `v0.3` sau `v1.0`
 
+
+MODIFICARE
 ## Resurse
 
 - adăugați trimiteri către resursele externe care v-au ajutat sau pe care le-ați folosit
