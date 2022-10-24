@@ -1,60 +1,17 @@
 #include <iostream>
-#include <string>
-
-class competition{
-    std::string com_name;
-    std::string country;
-    int nr_teams;
-};
-
-class coach{
-    std::string coach_name;
-    std::string style;
-
-};
-
-class team{
-    std::string name_team;
-    int nr_goluri;
-    int nr_players;
-    coach c;
-
-};
-
-class atribute{
-    int attacking;
-    int defending;
-    int passing;
-    int strenght, dribling;
-public:
-    atribute(){
-        std::cout<<"contructor fara param.\n";
-    }
-    atribute(int a, int d, int p, int s, int drib){
-        attacking=a;
-        defending=d;
-        passing=p;
-        strenght=s;
-        dribling=drib;
-        std::cout<<"constructor atribute\n";
-    }
-};
-
-class player: public atribute{
-    std::string nume_player;
-    int Overall;
-    std::string position;
-public:
-    player(std::string nume, int ovv, std::string position){
-        this->nume_player=nume;
-        this->Overall=ovv;
-        this->position=position;
-        std::cout<<"contructor cu parametrii player\n";
-    }
-};
+#include "clase.h"
 
 int main() {
-    player p1("Lionel Messi",92, "Left Winger");
-
-    return 0;
-}
+    atribute at(90,72,90,80,99);
+    player p1("Lionel Messi",92, "Left Winger",at );
+    competition c1("Premier League","England",20);
+    team t("Barcelona",100, 32);
+    competition c2;
+    coach c("Nicolae Dica","posesie",43);
+    c2=c1;
+    std::cout<<c1;
+    std::cout<<p1;
+    std::cout<<at;
+    std::cout<<t;
+    std::cout<<c;
+    return 0;}
