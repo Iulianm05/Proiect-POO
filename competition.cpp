@@ -55,6 +55,7 @@ std::ostream& operator<<(std::ostream& os, const competition& cmp){
     return os;
 }
 competition::~competition() {
+    delete[] teams;
     //std::cout<<"destructor competitie\n";
 }
 
