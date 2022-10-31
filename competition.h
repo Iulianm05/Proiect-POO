@@ -12,7 +12,7 @@
 class competition {
         std::string com_name;
         std::string country;
-        team *teams=new team[20];
+        team *teams;
         int nr_teams;
     public:
         competition();//constr init fara param

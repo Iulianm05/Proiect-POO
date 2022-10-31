@@ -33,6 +33,7 @@ void competition::adauga_echipe() {
     std::cout<<"Cate echipe doriti :"<<std::endl;
     int numar_echipe;
     std::cin>>numar_echipe;
+    teams=new team[numar_echipe];
     std::string nume;
     for(int i=0; i<numar_echipe;i++){
 
