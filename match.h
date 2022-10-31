@@ -17,6 +17,8 @@ class match {
 public:
     void meci();
     void set_team(team team1_,team team2_);
+    void set_gol_a(int gol_a);
+    void set_gol_b(int gol_b);
     std::string get_team1();
     std::string get_team2();
     match(team t1, team t2);
