@@ -12,34 +12,18 @@ competition::competition(const competition &other_competition) {
     //this->teams=other_competition.teams;
     //std::cout<<"cc competition\n";
 }
-competition::competition(const std::string com_name, const std::string country, int nr_teams) {
+competition::competition(const std::string &com_name, const std::string &country, int nr_teams) {
     this->com_name=com_name;
     this->country=country;
     this->nr_teams=nr_teams;
-    // teams=new std::vector<team>(nr_teams);
-//    for(int i=0; i<nr_teams; i++){
-//        std::string a;
-//        std::cin>>a;
-
     //std::cout<<"c competitie\n";
     // }
 }
 
-team *competition::get_teams() {
-    return this->teams;
-}
 
-void competition::adauga_echipe() {
-    std::cout<<"Cate echipe doriti :"<<std::endl;
-    int numar_echipe;
-    std::cin>>numar_echipe;
-    teams=new team[numar_echipe];
-    std::string nume;
-    for(int i=0; i<numar_echipe;i++){
-
-        std::cin>>nume;
-        team t(nume,0,0);
-        teams[i]=t;
+void competition::adauga_echipe(std::vector<team> t) {
+    for(auto t1:t){
+        teams.push_back(t1);
     }
 }
 competition &competition::operator=(const competition &other_competition) {
@@ -51,12 +35,11 @@ competition &competition::operator=(const competition &other_competition) {
 
 }
 std::ostream& operator<<(std::ostream& os, const competition& cmp){
-    os<<"Numele competitiei: "<<cmp.com_name<<", tara: "<<cmp.country<<" si numarul de echipe din campionat: "<<cmp.nr_teams<<std::endl;
+    os<<"Numele competitiei: "<<cmp.com_name<<", tara: "<<cmp.country<<" si numarul de echipe din campionat: "<<cmp.nr_teams<<std::endl<<"Echipele:"<<std::endl;
+    for(int i=0;i<cmp.nr_teams;i++) {
+        std::cout<<cmp.teams[i];
+    }
     return os;
-}
-competition::~competition() {
-    delete[] teams;
-    //std::cout<<"destructor competitie\n";
 }
 
 

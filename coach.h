@@ -13,7 +13,7 @@ class coach {
     int age;
 public:
     coach();
-    coach(const std::string coachName, const std::string style, int age);
+    coach(const std::string &coachName, const std::string &style, int age);
     //getters pentru ostream team
     std::string get_name(){
         return coach_name;

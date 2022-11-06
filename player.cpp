@@ -26,3 +26,11 @@ std::ostream& operator<<(std::ostream& os, const player& player1){
 player::~player() {
     //std::cout<<"dest player\n";
 }
+
+int player::getGoluri() const {
+    return goluri;
+}
+
+void player::setGoluri(int goluri) {
+    player::goluri = goluri;
+}

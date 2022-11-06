@@ -17,7 +17,7 @@ class team {
 public:
     team();
     ~team();
-    team(const std::string name, int nr_goluri, int nr_players);
+    team(const std::string &name, int nr_goluri, int nr_players);
     std::string get_name();
     void set_name(const std::string& nume);
     friend std::ostream& operator<<(std::ostream& os, const team& team1);

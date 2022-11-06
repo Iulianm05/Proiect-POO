@@ -12,18 +12,17 @@
 class competition {
         std::string com_name;
         std::string country;
-        team *teams;
+        std::vector <team> teams;
         int nr_teams;
     public:
         competition();//constr init fara param
         competition(const competition& other_competition); // contructor copiere explicit
-        competition(const std::string com_name, const std::string country, int nr_teams);// constr init cu param
+        competition(const std::string &com_name, const std::string &country, int nr_teams);// constr init cu param
         competition &operator=(const competition& other_competition);
-        //void set_nume(const std::string nume_);
-        team* get_teams();
-        void  adauga_echipe();
+
+
+    void  adauga_echipe(std::vector<team> t);
         friend std::ostream& operator<<(std::ostream& os, const competition& cmp);
-        ~competition();//destructor
 };
 
 

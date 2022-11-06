@@ -5,7 +5,7 @@
 #include "coach.h"
 
 coach::coach(){}
-coach::coach(const std::string coachName_, const std::string style_, int age_): coach_name{coachName_}, style{style_}, age{age_} {
+coach::coach(const std::string &coachName_, const std::string &style_, int age_): coach_name{coachName_}, style{style_}, age{age_} {
 
 }
 std::ostream& operator<<(std::ostream& os, const coach& coach1){
