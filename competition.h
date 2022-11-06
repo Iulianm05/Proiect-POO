@@ -20,6 +20,7 @@ class competition {
         competition(const std::string &com_name, const std::string &country, int nr_teams);// constr init cu param
         competition &operator=(const competition& other_competition);
 
+    const std::string &getComName() const;
 
     void  adauga_echipe(std::vector<team> t);
         friend std::ostream& operator<<(std::ostream& os, const competition& cmp);

@@ -9,10 +9,11 @@
 
 
 class atribute {
-    int attacking;
-    int defending;
-    int passing;
-    int strenght, dribling;
+    int attacking=0;
+    int defending=0;
+    int passing=0;
+    int strenght=0;
+    int dribling=0;
 public:
     atribute();
     atribute(int a, int d, int p, int s, int drib);

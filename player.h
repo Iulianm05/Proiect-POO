@@ -10,14 +10,14 @@
 
 class player {
     std::string nume_player;
-    int Overall;
-    int goluri;
+    int Overall=0;
+    int goluri=0;
     std::string position;
     atribute atributes;
     int value=0;
 public:
     player();
-    player(std::string nume, int ovv, std::string position, atribute atributes);
+    player(const std::string &nume, int ovv, const std::string &position,atribute atributes);
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
     int getGoluri() const;
     void setGoluri(int goluri);

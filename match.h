@@ -10,18 +10,22 @@
 #include <string>
 
 class match {
+
+
     team team1;
     team team2;
     int goluri_a=0;
     int goluri_b=0;
 public:
+    match();
+    match(const team &team1, const team &team2);
     void meci();
-    void set_team(team team1_,team team2_);
+    void set_team(const team &team1_,const team &team2_);
+
     void set_gol_a(int gol_a);
     void set_gol_b(int gol_b);
     std::string get_team1();
     std::string get_team2();
-    match(team t1, team t2);
 };
 
 

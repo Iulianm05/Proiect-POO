@@ -4,11 +4,9 @@
 
 #include "match.h"
 
-match::match(team t1, team t2): team1{t1}, team2{t2}{
+match::match()=default;
 
-}
-
-void match::set_team(team team_, team team2_) {
+void match::set_team(const team &team_, const team &team2_) {
     team1=team_;
     team2=team2_;
 }
@@ -26,7 +24,7 @@ void match::set_gol_a(int gol_a) {
 void match::set_gol_b(int gol_b) {
     this->goluri_b=gol_b;
 }
-
+//functie ce simuleaza scorul unui meci
 void match::meci() {
     srand(time(NULL));
     int rand_gol1=rand()%10;
@@ -36,3 +34,5 @@ void match::meci() {
     std::cout<<"Meciul dintre "<<get_team1()<<" si "<<get_team2()<<" s-a terminat cu scorul de "<<rand_gol1<<" : "<<rand_gol2<<std::endl;
 
 }
+
+match::match(const team &team1, const team &team2) : team1(team1), team2(team2) {}
