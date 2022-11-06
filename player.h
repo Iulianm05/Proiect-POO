@@ -14,14 +14,14 @@ class player {
     int goluri;
     std::string position;
     atribute atributes;
-    int value;
+    int value=0;
 public:
     player();
-
-    int getGoluri() const;
-    void setGoluri(int goluri);
     player(std::string nume, int ovv, std::string position, atribute atributes);
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
+    int getGoluri() const;
+    void setGoluri(int goluri);
+    void calc_value();
     ~player();
 };
 

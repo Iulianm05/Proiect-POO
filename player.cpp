@@ -9,18 +9,14 @@ player::player(std::string nume, int ovv, std::string position, atribute atribut
     this->nume_player=nume;
     this->Overall=ovv;
     this->position=position;
-    // std::cout<<"c player\n";
 
-
-//    this->attacking=a;
-//    this->dribling=drib;
-//    this->strenght=s;
-//    this->passing=p;
-//    this->defending=d;
 }
 
+void player::calc_value() {
+     this->value=this->Overall*this->Overall*1000;
+}
 std::ostream& operator<<(std::ostream& os, const player& player1){
-    os<<"Nume player: "<<player1.nume_player<<", overall: "<<player1.Overall<<", pozitie: "<<player1.position<<std::endl;
+    os<<"Nume player: "<<player1.nume_player<<", overall: "<<player1.Overall<<", pozitie: "<<player1.position<<", valoare: "<<player1.value<<"$"<<std::endl;
     return os;
 }
 player::~player() {
@@ -31,6 +27,6 @@ int player::getGoluri() const {
     return goluri;
 }
 
-void player::setGoluri(int goluri) {
-    player::goluri = goluri;
+void player::setGoluri(int goluri_) {
+    player::goluri = goluri_;
 }

@@ -15,7 +15,7 @@ public:
     coach();
     coach(const std::string &coachName, const std::string &style, int age);
     //getters pentru ostream team
-    std::string get_name(){
+    std::string get_name()const{
         return coach_name;
     }
     std::string get_style(){
