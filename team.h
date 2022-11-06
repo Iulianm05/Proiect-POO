@@ -1,6 +1,4 @@
-//
-// Created by Marin Iulian on 10/26/2022.
-//
+
 
 #ifndef MAIN_CPP_TEAM_H
 #define MAIN_CPP_TEAM_H
@@ -20,7 +18,6 @@ public:
     ~team();
     team(const std::string &name, int nr_goluri, int nr_players,const coach &coach1_);
     std::string get_name();
-    void set_name(const std::string& nume);
     friend std::ostream& operator<<(std::ostream& os, const team& team1);
 
 };

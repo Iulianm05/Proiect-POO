@@ -1,6 +1,4 @@
-//
-// Created by Marin Iulian on 10/26/2022.
-//
+
 #include <iostream>
 #include "player.h"
 

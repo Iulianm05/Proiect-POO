@@ -1,6 +1,4 @@
-//
-// Created by Marin Iulian on 10/26/2022.
-//
+
 
 #ifndef MAIN_CPP_ATRIBUTE_H
 #define MAIN_CPP_ATRIBUTE_H

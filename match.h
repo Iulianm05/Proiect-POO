@@ -1,6 +1,4 @@
-//
-// Created by Marin Iulian on 10/28/2022.
-//
+
 
 #ifndef MAIN_CPP_MATCH_H
 #define MAIN_CPP_MATCH_H
