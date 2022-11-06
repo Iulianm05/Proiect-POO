@@ -17,7 +17,7 @@ class player {
     int value=0;
 public:
     player();
-    player(const std::string &nume, int ovv, const std::string &position,atribute atributes);
+    player(const std::string &nume, int ovv, const std::string &position,const atribute &atributes);
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
     int getGoluri() const;
     void setGoluri(int goluri);

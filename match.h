@@ -20,7 +20,6 @@ public:
     match();
     match(const team &team1, const team &team2);
     void meci();
-    void set_team(const team &team1_,const team &team2_);
 
     void set_gol_a(int gol_a);
     void set_gol_b(int gol_b);

@@ -30,6 +30,11 @@ int main() {
 
     c2=c1;
     std::cout<<"Nume competite c2:"<<c2.getComName();
+    std::cout<<"==================="<<std::endl;
+    std::cout<<p1.getGoluri();
+    std::cout<<"==================="<<std::endl;
+    p1.setGoluri(130);
+    std::cout<<p1.getGoluri();
     std::cout<<c1;
     std::cout<<"==================="<<std::endl;
     std::cout<<p1;

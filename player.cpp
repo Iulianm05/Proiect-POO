@@ -5,11 +5,11 @@
 #include "player.h"
 
 player::player() = default;
-player::player(const std::string &nume, int ovv, const std::string &position, atribute atributes_):atributes{atributes_}{
+player::player(const std::string &nume, int ovv, const std::string &position, const atribute &atributes_){
     this->nume_player=nume;
     this->Overall=ovv;
     this->position=position;
-
+    this->atributes=atributes_;
 }
 
 void player::calc_value() {

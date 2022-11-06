@@ -6,10 +6,6 @@
 
 match::match()=default;
 
-void match::set_team(const team &team_, const team &team2_) {
-    team1=team_;
-    team2=team2_;
-}
 
 std::string match::get_team1() {
     return this->team1.get_name();
