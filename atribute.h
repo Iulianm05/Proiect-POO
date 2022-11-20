@@ -10,12 +10,22 @@ class atribute {
     int attacking=0;
     int defending=0;
     int passing=0;
-    int strenght=0;
+    int Strength=0;
     int dribling=0;
 public:
     atribute();
     atribute(int a, int d, int p, int s, int drib);
-    //trebuie getters pentru ostream la player
+
+    int getAttacking() const;
+
+    int getDefending() const;
+
+    int getPassing() const;
+
+    int getStrength() const;
+
+    int getDribling() const;
+
     friend std::ostream& operator<<(std::ostream& os, const atribute& atribute1);
     ~atribute();
 };

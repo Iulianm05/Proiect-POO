@@ -6,23 +6,35 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <ostream>
 
 class match {
 
 
-    team team1;
-    team team2;
-    int goluri_a=0;
-    int goluri_b=0;
+    team home_team{};
+    team away_team{};
+    int home_goals=0;
+    int away_goals=0;
 public:
     match();
-    match(const team &team1, const team &team2);
-    void meci();
+    match(const team &home_team={}, const team &away_team={});
 
+    void setHome_team(const team &home_team);
+
+    void setAway_team(const team &away_team);
+
+    const team &getHome_team() const;
+
+    const team &getAway_team() const;
+    void set_gol_h(int gol_h);
     void set_gol_a(int gol_a);
-    void set_gol_b(int gol_b);
-    std::string get_team1();
-    std::string get_team2();
+    std::string get_home_team_name();
+    std::string get_away_team_name();
+
+    friend std::ostream &operator<<(std::ostream &os, const match &match_);
+
+    friend void meci( team &home_team_, team &away_team_,match &meci_);
+
 };
 
 

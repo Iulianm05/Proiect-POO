@@ -10,6 +10,7 @@ class player {
     std::string nume_player;
     int Overall=0;
     int goluri=0;
+    int varsta{};
     std::string position;
     atribute atributes;
     int value=0;

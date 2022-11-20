@@ -6,21 +6,26 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 class competition {
-        std::string com_name;
-        std::string country;
-        std::vector <team> teams;
-        int nr_teams;
+        std::string com_name{};
+
+
+private:
+    std::string country{};
+        std::vector <team> teams{};
     public:
         competition();//constr init fara param
         competition(const competition& other_competition); // contructor copiere explicit
-        competition(const std::string &com_name, const std::string &country, int nr_teams);// constr init cu param
+        competition(const std::string &com_name, const std::string &country);// constr init cu param
         competition &operator=(const competition& other_competition);
 
     const std::string &getComName() const;
 
     void  adauga_echipe(std::vector<team> t);
-        friend std::ostream& operator<<(std::ostream& os, const competition& cmp);
+    void  adauga_echipe();
+    friend std::ostream& operator<<(std::ostream& os, const competition& cmp);
+    std::vector<team> &getTeams() ;
 };
 
 

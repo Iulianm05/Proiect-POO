@@ -1,1 +1,5 @@
-
+Liverpool 30 0 JurgenKlopp
+ManchesterCity 30 0 PepGuardiola
+ManchesteUnited 30 0 EriktenHag
+Arsenal 30 0 MikelArteta
+Chelsea 30 0 GrahamPotter
