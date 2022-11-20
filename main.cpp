@@ -63,7 +63,7 @@ int main() {
     for(int i=0; i<contor; i++){
         std::cout<<meciuri[i];
     }
-
+    std::cout<<meciuri[0].getHome_team()<<" "<<meciuri[0].getAway_team()<<std::endl;
     sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
     std::cout<<"==============================\n";
     std::cout<<"CLASAMENT\n";
