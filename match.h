@@ -17,11 +17,11 @@ class match {
     int away_goals=0;
 public:
     match();
-    match(const team &home_team, const team &away_team);
+    explicit match(const team &home_team={}, const team &away_team={});
 
-    void setHome_team(const team &home_team);
+    //void setHome_team(const team &home_team);
 
-    void setAway_team(const team &away_team);
+    //void setAway_team(const team &away_team);
 
     const team &getHome_team() const;
 

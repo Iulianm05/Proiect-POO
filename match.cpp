@@ -33,13 +33,13 @@ const team &match::getAway_team() const {
     return away_team;
 }
 
-void match::setHome_team(const team &home_team_) {
-    match::home_team = home_team_;
-}
+//void match::setHome_team(const team &home_team_) {
+//    match::home_team = home_team_;
+//}
 
-void match::setAway_team(const team &away_team_) {
-    match::away_team = away_team_;
-}
+//void match::setAway_team(const team &away_team_) {
+//    match::away_team = away_team_;
+//}
 
 std::ostream &operator<<(std::ostream &os, const match &match_) {
     os << "home_team: " << match_.home_team.getNameTeam() << " away_team: " << match_.away_team.getNameTeam() << " home_goals: " << match_.home_goals
@@ -52,7 +52,7 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
     int rand_gol2=rand()%10;
     meci_.set_gol_a(rand_gol2);
     meci_.set_gol_h(rand_gol1);
-    //std::cout<<"Meciul dintre "<<meci_.get_home_team_name()<<" si "<<meci_.get_away_team_name()<<" s-a terminat cu scorul de "<<rand_gol1<<" : "<<rand_gol2<<std::endl;
+    std::cout<<"Meciul dintre "<<meci_.get_home_team_name()<<" si "<<meci_.get_away_team_name()<<" s-a terminat cu scorul de "<<rand_gol1<<" : "<<rand_gol2<<std::endl;
     if(rand_gol1>rand_gol2)
     {
         int x=home_team_.getPuncte()+3;
