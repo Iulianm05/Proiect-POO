@@ -13,7 +13,7 @@ bool comparator(const team &a, const team &b) {
 int main() {
     srand(time(NULL));
     atribute at(90,72,90,80,99);
-    player p1("Lionel Messi",92, "Left Winger",at);
+    player p1("Lionel Messi",92, "Left Winger",36,at);
     p1.calc_value();
     competition c1("Premier League","England");
     coach antrenor1("Nicolae Dica","posesie",43);
@@ -63,7 +63,7 @@ int main() {
         std::cout<<meciuri[i];
     }
 
-    std::sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
+    sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
     std::cout<<"==============================\n";
     std::cout<<"CLASAMENT\n";
     std::cout<<"==============================\n";
