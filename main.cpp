@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "coach.h"
 #include "player.h"
 #include "atribute.h"

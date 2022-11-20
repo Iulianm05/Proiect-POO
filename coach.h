@@ -13,7 +13,7 @@ class coach {
     int age;
 public:
     coach();
-    coach(const std::string &coachName, const std::string &style="", int age=0);
+    coach(const std::string &coachName, const std::string &style, int age);
     std::string get_name()const{
         return coach_name;
     }

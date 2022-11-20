@@ -17,7 +17,7 @@ class match {
     int away_goals=0;
 public:
     match();
-    match(const team &home_team={}, const team &away_team={});
+    match(const team &home_team, const team &away_team);
 
     void setHome_team(const team &home_team);
 
