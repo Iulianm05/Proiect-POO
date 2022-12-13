@@ -6,8 +6,9 @@
 #define MAIN_CPP_COACH_H
 #include <string>
 #include <iostream>
-
-class coach {
+#include <memory>
+/*
+ class coach {
     std::string coach_name;
     std::string style;
     int age;
@@ -25,6 +26,23 @@ public:
     }
     friend std::ostream& operator<<(std::ostream& os, const coach& coach1);
 };
+
+ */
+
+class coach {
+    std::string nume;
+    int varsta;
+public:
+    virtual std::shared_ptr<coach> clone() const =0;
+    virtual void boost_echipa() const=0;
+    friend std::ostream &operator<<(std::ostream &os,const coach &coach_);
+    explicit coach(std::string nume_,int varsta);
+    virtual ~coach();
+    std::string get_name();
+private:
+    virtual void afisare(std::ostream &) const{};
+};
+
 
 
 #endif //MAIN_CPP_COACH_H

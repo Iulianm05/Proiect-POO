@@ -1,6 +1,7 @@
 
 
 #include "competition.h"
+#include "offensive_coach.h"
 
 
 competition::competition() {
@@ -42,7 +43,8 @@ void competition::adauga_echipe() {
     while(fin>>nume_echipa>>nr_jucatori>>goluri>>nume_antrenor){
         while(fin>>nume_jucator>>ovv>>pozitie&&nume_jucator!="&")
             p.push_back(player{nume_jucator,ovv,pozitie});
-        teams.push_back(team{nume_echipa,goluri,coach(nume_antrenor),p,0});
+        std::shared_ptr<coach> c = offensive_coach(nume_antrenor).clone() ;
+        teams.push_back(team{nume_echipa,goluri,c,p,0});
         p.clear();
     }
 }

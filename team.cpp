@@ -3,7 +3,7 @@
 #include "team.h"
 
 team::team(){}
-team::team(const std::string &name, int nr_goluri, const coach &coach1_,std::vector<player> players_, int puncte_, int buget_transferuri_) {
+team::team(const std::string &name, int nr_goluri, std::shared_ptr<coach> coach1_,std::vector<player> players_, int puncte_, int buget_transferuri_) {
     this->name_team=name;
     this->nr_goluri=nr_goluri;
     this->coach1=coach1_;
@@ -26,7 +26,7 @@ std::string team::get_name() {return this->name_team;}
 
 
 std::ostream& operator<<(std::ostream& os, const team& team1){
-    os<<"Nume echipa: "<<team1.name_team<<", numar jucatori "<<team1.players.size()<<", goluri marcate de echipa: "<<team1.nr_goluri<<", antrenor: "<<team1.coach1.get_name()<<std::endl;
+    os<<"Nume echipa: "<<team1.name_team<<", numar jucatori "<<team1.players.size()<<", goluri marcate de echipa: "<<team1.nr_goluri<<", antrenor: "<<team1.coach1->get_name()<<std::endl;
     return os;
 }
 team::~team() {}
@@ -45,6 +45,14 @@ const std::string &team::getNameTeam() const {
 
 int team::getRating() const {
     return rating;
+}
+
+const std::vector<player> &team::getPlayers() const {
+    return players;
+}
+
+const std::shared_ptr<coach> &team::getCoach1() const {
+    return coach1;
 }
 
 

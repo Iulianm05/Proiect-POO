@@ -27,7 +27,7 @@ Van_Dijk 87 CB
 Fabinho 86 CDM
 & 0 &
 Chelsea 30 0 Graham_Potter
-Salah 88 RW
+Octavian 88 RW
 Firmino 84 ST
 Jota 83 ST
 Van_Dijk 87 CB

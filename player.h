@@ -15,6 +15,8 @@ class player {
     atribute atributes;
     int value=0;
 public:
+    const std::string &getNumePlayer() const;
+
     player();
     player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
     friend std::ostream& operator<<(std::ostream& os, const player& player1);

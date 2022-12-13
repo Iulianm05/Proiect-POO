@@ -83,7 +83,9 @@ int main(){
     competition competitie("Premier League","Anglia");
     competitie.adauga_echipe();
     std::cout<<competitie;
-    for(size_t i=0;i<competitie.getTeams().size();i++)
-        std::cout<<competitie.getTeams()[i].getRating()<<std::endl;
+    for(size_t i=0;i<competitie.getTeams().size();i++) {
+        std::cout << competitie.getTeams()[i].getRating() << std::endl;
+        std::cout<<*competitie.getTeams()[i].getCoach1();
+    }
     return 0;
 }

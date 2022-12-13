@@ -44,3 +44,7 @@ void player::setGoluri(int goluri_) {
 int player::getOverall() const {
     return Overall;
 }
+
+const std::string &player::getNumePlayer() const {
+    return nume_player;
+}
