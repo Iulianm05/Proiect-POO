@@ -31,7 +31,13 @@ public:
 
 class coach {
     std::string nume;
-    int varsta;
+    int varsta{};
+public:
+    coach(coach &&other) = default;
+    coach &operator=(coach &&other) = default;
+protected:
+    coach(const coach &other) = default;
+    coach &operator=(const coach &other) = default;
 public:
     virtual std::shared_ptr<coach> clone() const =0;
     virtual void boost_echipa() const=0;
@@ -39,6 +45,9 @@ public:
     explicit coach(std::string nume_,int varsta);
     virtual ~coach();
     std::string get_name();
+
+    int getVarsta() const;
+
 private:
     virtual void afisare(std::ostream &) const{};
 };

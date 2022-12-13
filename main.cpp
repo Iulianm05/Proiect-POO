@@ -7,34 +7,38 @@
 #include "competition.h"
 #include "team.h"
 #include "match.h"
+#include "offensive_coach.h"
+#include "defensive_coach.h"
 //void meci(team &home_team_, team &away_team_, match &meci_);
 
 
-/*
+
  bool comparator(const team &a, const team &b) {
     return a.getPuncte()>b.getPuncte();
 }
 int main() {
-    srand(time(NULL));
+    srand(time(nullptr));
     atribute at(90,72,90,80,99);
     player p1("Lionel Messi",92, "Left Winger",36,at);
+    player p2("CR7",92, "Left Winger",36,at);
     p1.calc_value();
+    std::vector<player> pls;
+    pls.push_back(p1);
+    pls.push_back(p2);
     competition c1("Premier League","England");
-    coach antrenor1("Nicolae Dica","posesie",43);
-    coach antrenor2("Jurgen Klopp","atac",55);
-    coach antrenor3("Pep Guardiola","atac",55);
-    team t("Liverpool",100, 32,antrenor2,0);
-    team t2("Manchester City",0,30,antrenor3,0);
-    team t3("Manchester United", 88,30,antrenor1,0);
+    std::shared_ptr<coach> c = offensive_coach("Pep Guardiola").clone();
+    std::shared_ptr<coach> c22 = offensive_coach("Dica").clone();
+    std::shared_ptr<coach> c33 = defensive_coach("Petrescu").clone();
+    team t("Liverpool",100,c,pls,0);
+    team t2("Manchester City",100,c22,pls,0);
+    team t3("Manchester United", 88,c33,pls,0);
     std::vector<team> echipe;
     echipe.push_back(t);
     echipe.push_back(t2);
     echipe.push_back(t3);
     c1.adauga_echipe(echipe);
     competition c2;
-
-    coach c("Nicolae Dica","posesie",43);
-
+    competition comp2(c1);
     c2=c1;
     competition c3("Premier League","");
     c3.adauga_echipe();
@@ -74,18 +78,21 @@ int main() {
     for(size_t i=0;i<c3.getTeams().size();i++){
         std::cout<<c3.getTeams()[i].getNameTeam()<<" are :"<<c3.getTeams()[i].getPuncte()<<" puncte\n";
     }
-
-    return 0;
-}
- */
-
-int main(){
     competition competitie("Premier League","Anglia");
     competitie.adauga_echipe();
     std::cout<<competitie;
     for(size_t i=0;i<competitie.getTeams().size();i++) {
         std::cout << competitie.getTeams()[i].getRating() << std::endl;
         std::cout<<*competitie.getTeams()[i].getCoach1();
+        competitie.getTeams()[i].getCoach1()->boost_echipa();
     }
+    defensive_coach def("123",0,9);
+    def.getAbilitateDefensiva();
+    std::cout<<*std::shared_ptr<coach>(c33);
+    c33->getVarsta();
+
+
     return 0;
 }
+
+

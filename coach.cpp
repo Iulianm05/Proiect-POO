@@ -27,5 +27,9 @@ std::string coach::get_name() {
     return this->nume;
 }
 
+int coach::getVarsta() const {
+    return varsta;
+}
+
 coach::~coach()=default;
 

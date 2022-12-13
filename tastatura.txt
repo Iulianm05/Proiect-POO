@@ -1,32 +1,32 @@
-Liverpool 30 0 Jurgen_Klopp
+Liverpool 30 0 Jurgen_Klopp 1
 Salah 88 RW
 Firmino 84 ST
 Jota 83 ST
 Van_Dijk 87 CB
 Fabinho 86 CDM
 & 0 &
-Manchester_City 30 0 Pep_Guardiola
+Manchester_City 30 0 Pep_Guardiola 1
 Salah 88 RW
 Firmino 84 ST
 Jota 83 ST
 Van_Dijk 87 CB
 Fabinho 86 CDM
 & 0 &
-Mancheste_United 30 0 Erik_ten_Hag
+Mancheste_United 30 0 Erik_ten_Hag 2
 Salah 88 RW
 Firmino 84 ST
 Jota 83 ST
 Van_Dijk 87 CB
 Fabinho 86 CDM
 & 0 &
-Arsenal 30 0 Mikel_Arteta
+Arsenal 30 0 Mikel_Arteta 2
 Salah 88 RW
 Firmino 84 ST
 Jota 83 ST
 Van_Dijk 87 CB
 Fabinho 86 CDM
 & 0 &
-Chelsea 30 0 Graham_Potter
+Chelsea 30 0 Graham_Potter 1
 Octavian 88 RW
 Firmino 84 ST
 Jota 83 ST
