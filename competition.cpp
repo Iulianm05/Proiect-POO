@@ -35,8 +35,15 @@ void competition::adauga_echipe() {
     int nr_jucatori;
     int goluri;
     std::string nume_antrenor;
+    std::string nume_jucator;
+    int ovv;
+    std::string pozitie;
+    std::vector<player> p;
     while(fin>>nume_echipa>>nr_jucatori>>goluri>>nume_antrenor){
-        teams.push_back(team{nume_echipa,goluri,nr_jucatori,coach(nume_antrenor),0});
+        while(fin>>nume_jucator>>ovv>>pozitie&&nume_jucator!="&")
+            p.push_back(player{nume_jucator,ovv,pozitie});
+        teams.push_back(team{nume_echipa,goluri,coach(nume_antrenor),p,0});
+        p.clear();
     }
 }
 competition &competition::operator=(const competition &other_competition) {

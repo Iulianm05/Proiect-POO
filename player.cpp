@@ -40,3 +40,7 @@ int player::getGoluri() const {
 void player::setGoluri(int goluri_) {
     player::goluri = goluri_;
 }
+
+int player::getOverall() const {
+    return Overall;
+}

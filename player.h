@@ -16,11 +16,14 @@ class player {
     int value=0;
 public:
     player();
-    player(const std::string &nume, int ovv, const std::string &position,int varsta,const atribute &atributes);
+    player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
     int getGoluri() const;
     void setGoluri(int goluri);
     void calc_value();
+
+    int getOverall() const;
+
     ~player();
 };
 

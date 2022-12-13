@@ -8,7 +8,10 @@
 #include "team.h"
 #include "match.h"
 //void meci(team &home_team_, team &away_team_, match &meci_);
-bool comparator(const team &a, const team &b) {
+
+
+/*
+ bool comparator(const team &a, const team &b) {
     return a.getPuncte()>b.getPuncte();
 }
 int main() {
@@ -72,5 +75,15 @@ int main() {
         std::cout<<c3.getTeams()[i].getNameTeam()<<" are :"<<c3.getTeams()[i].getPuncte()<<" puncte\n";
     }
 
+    return 0;
+}
+ */
+
+int main(){
+    competition competitie("Premier League","Anglia");
+    competitie.adauga_echipe();
+    std::cout<<competitie;
+    for(size_t i=0;i<competitie.getTeams().size();i++)
+        std::cout<<competitie.getTeams()[i].getRating()<<std::endl;
     return 0;
 }

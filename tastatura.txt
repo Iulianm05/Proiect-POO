@@ -1,5 +1,35 @@
 Liverpool 30 0 Jurgen_Klopp
+Salah 88 RW
+Firmino 84 ST
+Jota 83 ST
+Van_Dijk 87 CB
+Fabinho 86 CDM
+& 0 &
 Manchester_City 30 0 Pep_Guardiola
+Salah 88 RW
+Firmino 84 ST
+Jota 83 ST
+Van_Dijk 87 CB
+Fabinho 86 CDM
+& 0 &
 Mancheste_United 30 0 Erik_ten_Hag
+Salah 88 RW
+Firmino 84 ST
+Jota 83 ST
+Van_Dijk 87 CB
+Fabinho 86 CDM
+& 0 &
 Arsenal 30 0 Mikel_Arteta
+Salah 88 RW
+Firmino 84 ST
+Jota 83 ST
+Van_Dijk 87 CB
+Fabinho 86 CDM
+& 0 &
 Chelsea 30 0 Graham_Potter
+Salah 88 RW
+Firmino 84 ST
+Jota 83 ST
+Van_Dijk 87 CB
+Fabinho 86 CDM
+& 0 &
