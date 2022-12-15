@@ -3,6 +3,7 @@
 #ifndef MAIN_CPP_MATCH_H
 #define MAIN_CPP_MATCH_H
 #include "team.h"
+#include "exceptions.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -17,7 +18,7 @@ class match {
     int away_goals=0;
 public:
     match();
-    explicit match(const team &home_team={}, const team &away_team={});
+    explicit match(const team &home_team, const team &away_team);
 
     //void setHome_team(const team &home_team);
 

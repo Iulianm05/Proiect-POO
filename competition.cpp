@@ -5,6 +5,7 @@
 #include "defensive_coach.h"
 
 
+
 competition::competition() {
     //std::cout<<"constructor competitie fara param\n";
 }
@@ -17,6 +18,9 @@ competition::competition(const competition &other_competition) {
 competition::competition(const std::string &com_name, const std::string &country) {
     this->com_name=com_name;
     this->country=country;
+    adauga_echipe();
+    if(teams.empty())
+        throw(eroare_competitie{"Competitia "+com_name+" trebuie sa aiba cel putin o echipa"});
     //std::cout<<"c competitie\n";
     // }
 }
@@ -52,6 +56,7 @@ void competition::adauga_echipe() {
         teams.push_back(team{nume_echipa,goluri,c,p,0});
         p.clear();
     }
+
 }
 competition &competition::operator=(const competition &other_competition) {
     this->com_name=other_competition.com_name;

@@ -25,6 +25,7 @@ int main() {
     std::vector<player> pls;
     pls.push_back(p1);
     pls.push_back(p2);
+    try{
     competition c1("Premier League","England");
     std::shared_ptr<coach> c = offensive_coach("Pep Guardiola").clone();
     std::shared_ptr<coach> c22 = offensive_coach("Dica").clone();
@@ -41,7 +42,7 @@ int main() {
     competition comp2(c1);
     c2=c1;
     competition c3("Premier League","");
-    c3.adauga_echipe();
+    //c3.adauga_echipe();
     std::cout<<"Nume competite c2:"<<c2.getComName()<<std::endl;
     std::cout<<"==================="<<std::endl;
     std::cout<<p1.getGoluri();
@@ -59,38 +60,46 @@ int main() {
     std::cout<<"===================="<<std::endl;
     std::cout<<c3;
     int contor=0;
-    std::vector <match> meciuri;
-    for(size_t i=0; i<c3.getTeams().size()-1;i++)
-        for(size_t j=i+1;j<c3.getTeams().size();j++){
-            meciuri.push_back(match(c3.getTeams()[i],c3.getTeams()[j]));
-            meci(c3.getTeams()[i],c3.getTeams()[j],meciuri[contor]);
-            contor++;
 
+
+        std::vector <match> meciuri;
+        for(size_t i=0; i<c3.getTeams().size()-1;i++)
+            for(size_t j=i+1;j<c3.getTeams().size();j++){
+                meciuri.push_back(match(c3.getTeams()[i],c3.getTeams()[j]));
+                meci(c3.getTeams()[i],c3.getTeams()[j],meciuri[contor]);
+                contor++;
+
+            }
+        for(int i=0; i<contor; i++){
+            std::cout<<meciuri[i];
         }
-    for(int i=0; i<contor; i++){
-        std::cout<<meciuri[i];
-    }
-    std::cout<<meciuri[0].getHome_team()<<" "<<meciuri[0].getAway_team()<<std::endl;
-    sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
-    std::cout<<"==============================\n";
-    std::cout<<"CLASAMENT\n";
-    std::cout<<"==============================\n";
-    for(size_t i=0;i<c3.getTeams().size();i++){
-        std::cout<<c3.getTeams()[i].getNameTeam()<<" are :"<<c3.getTeams()[i].getPuncte()<<" puncte\n";
-    }
-    competition competitie("Premier League","Anglia");
-    competitie.adauga_echipe();
-    std::cout<<competitie;
-    for(size_t i=0;i<competitie.getTeams().size();i++) {
-        std::cout << competitie.getTeams()[i].getRating() << std::endl;
-        std::cout<<*competitie.getTeams()[i].getCoach1();
-        competitie.getTeams()[i].getCoach1()->boost_echipa();
-    }
-    defensive_coach def("123",0,9);
-    def.getAbilitateDefensiva();
-    std::cout<<*std::shared_ptr<coach>(c33);
-    c33->getVarsta();
+        std::cout<<meciuri[0].getHome_team()<<" "<<meciuri[0].getAway_team()<<std::endl;
+        sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
+        std::cout<<"==============================\n";
+        std::cout<<"CLASAMENT\n";
+        std::cout<<"==============================\n";
+        for(size_t i=0;i<c3.getTeams().size();i++){
+            std::cout<<c3.getTeams()[i].getNameTeam()<<" are :"<<c3.getTeams()[i].getPuncte()<<" puncte\n";
+        }
+        competition competitie("Premier League","Anglia");
+        //competitie.adauga_echipe();
+        std::cout<<competitie;
+        for(size_t i=0;i<competitie.getTeams().size();i++) {
+            std::cout << competitie.getTeams()[i].getRating() << std::endl;
+            std::cout<<*competitie.getTeams()[i].getCoach1();
+            competitie.getTeams()[i].getCoach1()->boost_echipa();
+        }
+        defensive_coach def("123",0,9);
+        def.getAbilitateDefensiva();
+        std::cout<<*std::shared_ptr<coach>(c33);
+        c33->getVarsta();
 
+    }
+    catch(eroare_competitie &err){
+        std::cout<<err.what()<<std::endl;
+    }catch(eroare_meci &err){
+        std::cout<<err.what()<<std::endl;
+    }
 
     return 0;
 }

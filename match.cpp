@@ -23,7 +23,11 @@ void match::set_gol_a(int gol_a) {
 //functie ce simuleaza scorul unui meci
 
 
-match::match(const team &home_team, const team &away_team) : home_team(home_team), away_team(away_team) {}
+match::match(const team &home_team_, const team &away_team_) : home_team(home_team_), away_team(away_team_) {
+    if(home_team.getNameTeam() == away_team.getNameTeam()){
+        throw(eroare_meci{"Echipa "+home_team.getNameTeam()+" nu poate juca impotriva ei!" });
+    }
+}
 
 const team &match::getHome_team() const {
     return home_team;

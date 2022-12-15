@@ -29,7 +29,7 @@ public:
     std::string get_name();
     friend std::ostream& operator<<(std::ostream& os, const team& team1);
     int getPuncte() const;
-
+    //team(const team &other);
     const std::string &getNameTeam() const;
 
     const std::vector<player> &getPlayers() const;
