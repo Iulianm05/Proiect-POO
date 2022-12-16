@@ -3,12 +3,14 @@
 #include "player.h"
 
 player::player() = default;
+int player::ID=0;
 player::player(const std::string &nume, int ovv, const std::string &position,int varsta, const atribute &atributes_){
     this->nume_player=nume;
     this->Overall=ovv;
     this->position=position;
     this->varsta=varsta;
     this->atributes=atributes_;
+    ID++;
 }
 
 void player::calc_value() {
@@ -47,4 +49,8 @@ int player::getOverall() const {
 
 const std::string &player::getNumePlayer() const {
     return nume_player;
+}
+
+int player::getId() {
+    return ID;
 }

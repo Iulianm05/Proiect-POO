@@ -32,6 +32,10 @@ public:
     std::string get_home_team_name();
     std::string get_away_team_name();
 
+    int getAwayGoals() const;
+
+    int getHomeGoals() const;
+
     friend std::ostream &operator<<(std::ostream &os, const match &match_);
 
     friend void meci( team &home_team_, team &away_team_,match &meci_);

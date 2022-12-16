@@ -9,7 +9,7 @@
 #include "match.h"
 #include "offensive_coach.h"
 #include "defensive_coach.h"
-//void meci(team &home_team_, team &away_team_, match &meci_);
+
 
 
 
@@ -56,7 +56,7 @@ int main() {
     std::cout<<at;
     std::cout<<t;
     std::cout<<"==================="<<std::endl;
-    std::cout<<c;
+    std::cout<<*c;
     std::cout<<"===================="<<std::endl;
     std::cout<<c3;
     int contor=0;
@@ -70,9 +70,9 @@ int main() {
                 contor++;
 
             }
-        for(int i=0; i<contor; i++){
-            std::cout<<meciuri[i];
-        }
+//        for(int i=0; i<contor; i++){
+//            std::cout<<meciuri[i];
+//        }
         std::cout<<meciuri[0].getHome_team()<<" "<<meciuri[0].getAway_team()<<std::endl;
         sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
         std::cout<<"==============================\n";
@@ -81,19 +81,23 @@ int main() {
         for(size_t i=0;i<c3.getTeams().size();i++){
             std::cout<<c3.getTeams()[i].getNameTeam()<<" are :"<<c3.getTeams()[i].getPuncte()<<" puncte\n";
         }
+        std::cout<<c3;
         competition competitie("Premier League","Anglia");
         //competitie.adauga_echipe();
         std::cout<<competitie;
         for(size_t i=0;i<competitie.getTeams().size();i++) {
             std::cout << competitie.getTeams()[i].getRating() << std::endl;
             std::cout<<*competitie.getTeams()[i].getCoach1();
-            competitie.getTeams()[i].getCoach1()->boost_echipa();
+            //competitie.getTeams()[i].getCoach1()->boost_echipa();
         }
         defensive_coach def("123",0,9);
         def.getAbilitateDefensiva();
         std::cout<<*std::shared_ptr<coach>(c33);
         c33->getVarsta();
-
+        match meci1(c3.getTeams()[0],c3.getTeams()[1]);
+        meci(c3.getTeams()[0],c3.getTeams()[1],meci1);
+        std::cout<<meci1;
+        std::cout<<"Numarul de jucatori din campionat: "<<player::getId()<<std::endl;
     }
     catch(eroare_competitie &err){
         std::cout<<err.what()<<std::endl;

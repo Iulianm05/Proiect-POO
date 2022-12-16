@@ -40,7 +40,7 @@ protected:
     coach &operator=(const coach &other) = default;
 public:
     virtual std::shared_ptr<coach> clone() const =0;
-    virtual void boost_echipa() const=0;
+    virtual void boost_echipa(int &gol_boost, int &draw, int &gol_a, int &ocazii) const=0;
     friend std::ostream &operator<<(std::ostream &os,const coach &coach_);
     explicit coach(std::string nume_,int varsta);
     virtual ~coach();

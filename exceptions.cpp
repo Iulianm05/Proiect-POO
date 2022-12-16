@@ -1,6 +1,4 @@
-//
-// Created by Marin Iulian on 12/15/2022.
-//
+
 
 #include "exceptions.h"
 

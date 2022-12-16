@@ -18,7 +18,11 @@ std::shared_ptr<coach> defensive_coach::clone() const {
     return std::make_shared<defensive_coach> (*this);
 }
 
-void defensive_coach::boost_echipa() const {
-    std::cout<<"Echipa va primi un boost in defensiva, astfel echipa nu va primi goluri multe\n";
+void defensive_coach::boost_echipa(int &gol_boost, int &draw, int &gol_a, int &ocazii) const {
+   //std::cout<<"boost defensiv!\n";
+   gol_boost+=1;
+   draw+=4;
+   gol_a-=5;
+   ocazii-=2;
 }
 

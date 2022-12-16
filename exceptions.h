@@ -1,6 +1,4 @@
-//
-// Created by Marin Iulian on 12/15/2022.
-//
+
 
 #ifndef MAIN_CPP_EXCEPTIONS_H
 #define MAIN_CPP_EXCEPTIONS_H

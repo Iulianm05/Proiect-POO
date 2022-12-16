@@ -10,7 +10,7 @@ class offensive_coach:public coach {
 public:
     explicit offensive_coach(const std::string &nume,int varsta=0,int abilitate_ofensiva=0,std::string formatie_="" );
     std::shared_ptr<coach> clone()const override;
-    void boost_echipa() const override;
+    void boost_echipa(int &gol_boost, int &draw, int &gol_a, int &ocazii) const override;
 
 
 };

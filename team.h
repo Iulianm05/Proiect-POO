@@ -14,6 +14,10 @@ class team {
     int nr_goluri{};
     std::vector<player> players;
     int puncte{};
+public:
+    void setNrGoluri(int nrGoluri);
+
+private:
     int buget_transferuri{};
     int rating;
 public:
@@ -37,6 +41,8 @@ public:
     const std::shared_ptr<coach> &getCoach1() const;
 
     void setPuncte(int puncte_);
+
+    int getNrGoluri() const;
 
 
 };

@@ -6,10 +6,10 @@ Van_Dijk 87 CB
 Fabinho 86 CDM
 & 0 &
 Manchester_City 30 0 Pep_Guardiola 1
-Salah 88 RW
+Salah 87 RW
 Firmino 84 ST
-Jota 83 ST
-Van_Dijk 87 CB
+Jota 80 ST
+Van_Dijk 83 CB
 Fabinho 86 CDM
 & 0 &
 Mancheste_United 30 0 Erik_ten_Hag 2

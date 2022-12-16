@@ -55,6 +55,14 @@ const std::shared_ptr<coach> &team::getCoach1() const {
     return coach1;
 }
 
+void team::setNrGoluri(int nrGoluri) {
+    nr_goluri = nrGoluri;
+}
+
+int team::getNrGoluri() const {
+    return nr_goluri;
+}
+
 //team::team(const team &other)=default;
 
 

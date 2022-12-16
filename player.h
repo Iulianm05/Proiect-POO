@@ -11,6 +11,7 @@ class player {
     int Overall=0;
     int goluri=0;
     int varsta{};
+    static int ID;
     std::string position;
     atribute atributes;
     int value=0;
@@ -23,6 +24,8 @@ public:
     int getGoluri() const;
     void setGoluri(int goluri);
     void calc_value();
+
+    static int getId();
 
     int getOverall() const;
 
