@@ -176,7 +176,7 @@ void match::marcare_gol(team &home, int i) {
     int rp=rand()%99+1;
     if(rp<=p1)
         home.getPlayers()[i].setGoluri(home.getPlayers()[i].getGoluri()+1);
-    else if(rp>p1 && rp<=p1+p2){
+    else if(rp<=p1+p2){
         home.getPlayers()[i+1].setGoluri(home.getPlayers()[i+1].getGoluri()+1);
     }
     else home.getPlayers()[i+2].setGoluri(home.getPlayers()[i+2].getGoluri()+1);
