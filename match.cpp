@@ -6,12 +6,6 @@
 match::match()=default;
 
 
-std::string match::get_home_team_name() {
-    return this->home_team.get_name();
-}
-std::string match::get_away_team_name() {
-    return this->away_team.get_name();
-}
 
 void match::set_gol_h(int gol_h) {
     this->home_goals=gol_h;
@@ -54,7 +48,7 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
     int goal_home_team=25; //probabilitate de a marca gol echipa in timpul unei ocazii
     int goal_away_team=25;
     int draw=50;
-    int ATT=60;
+    int ATT=60;//probabilitate de a marca un atacant
     int MID=30;
     //daca diferenta de rating dintre echipe este mai mica decat 10 atunci probabilitatea de a marca a echipei cu raatingul mai mare va creste cu 2*diferenta iar restul vor scadea cu diferenta
     //altfel probabilitatea de a marca a echipei cu ratingul mai mare va creste cu 20
@@ -94,7 +88,7 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
             if(rand_player<=ATT){
                 indice=0;
                 meci_.marcare_gol(home_team_,indice);
-            }else if(rand_player>ATT && rand_player<=ATT+MID){
+            }else if(rand_player<=ATT+MID){
                     indice=3;
                     meci_.marcare_gol(home_team_,indice);
             }
@@ -105,10 +99,10 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
                 int rp=rand()%100+1;
                 if(rp<=p1)
                     home_team_.getPlayers()[6].setGoluri(home_team_.getPlayers()[6].getGoluri()+1);
-                else if(rp>p1 && rp<=p1+p2){
+                else if(rp<=p1+p2){
                     home_team_.getPlayers()[7].setGoluri(home_team_.getPlayers()[7].getGoluri()+1);
                 }
-                else if (rp > p1 + p2 && rp <= p1 + p2 + p3) {
+                else if (rp <= p1 + p2 + p3) {
                     home_team_.getPlayers()[8].setGoluri(home_team_.getPlayers()[8].getGoluri() + 1);
                 } else home_team_.getPlayers()[9].setGoluri(home_team_.getPlayers()[9].getGoluri() + 1);
             }
@@ -121,7 +115,7 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
             if(rand_player<=ATT){
                 indice=0;
                 meci_.marcare_gol(away_team_,indice);
-            }else if(rand_player>ATT && rand_player<=ATT+MID){
+            }else if(rand_player<=ATT+MID){
                 indice=3;
                 meci_.marcare_gol(away_team_,indice);
             }
@@ -132,10 +126,10 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
                 int rp=rand()%100+1;
                 if(rp<=p1)
                     away_team_.getPlayers()[6].setGoluri(away_team_.getPlayers()[6].getGoluri()+1);
-                else if(rp>p1 && rp<=p1+p2){
+                else if(rp<=p1+p2){
                     away_team_.getPlayers()[7].setGoluri(away_team_.getPlayers()[7].getGoluri()+1);
                 }
-                else if (rp > p1 + p2 && rp <= p1 + p2 + p3) {
+                else if (rp <= p1 + p2 + p3) {
                     away_team_.getPlayers()[8].setGoluri(away_team_.getPlayers()[8].getGoluri() + 1);
                 } else away_team_.getPlayers()[9].setGoluri(away_team_.getPlayers()[9].getGoluri() + 1);
             }

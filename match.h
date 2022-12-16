@@ -30,9 +30,6 @@ public:
     const team &getAway_team() const;
     void set_gol_h(int gol_h);
     void set_gol_a(int gol_a);
-    std::string get_home_team_name();
-    std::string get_away_team_name();
-
     int getAwayGoals() const;
 
     int getHomeGoals() const;
