@@ -35,7 +35,7 @@ player::~player() {
     //std::cout<<"dest player\n";
 }
 
-int player::getGoluri() const {
+int player::getGoluri() {
     return goluri;
 }
 

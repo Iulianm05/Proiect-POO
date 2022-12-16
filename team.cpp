@@ -3,9 +3,8 @@
 #include "team.h"
 
 team::team(){}
-team::team(const std::string &name, int nr_goluri, std::shared_ptr<coach> coach1_,std::vector<player> players_, int puncte_, int buget_transferuri_) {
+team::team(const std::string &name, std::shared_ptr<coach> coach1_,std::vector<player> players_, int puncte_, int buget_transferuri_) {
     this->name_team=name;
-    this->nr_goluri=nr_goluri;
     this->coach1=coach1_;
     this->players=players_;
     this->puncte=puncte_;
@@ -47,7 +46,7 @@ int team::getRating() const {
     return rating;
 }
 
-const std::vector<player> &team::getPlayers() const {
+ std::vector<player> &team::getPlayers() {
     return players;
 }
 

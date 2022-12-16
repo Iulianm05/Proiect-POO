@@ -21,8 +21,8 @@ public:
     player();
     player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
-    int getGoluri() const;
-    void setGoluri(int goluri);
+    int getGoluri();
+    void setGoluri(int goluri_);
     void calc_value();
 
     static int getId();

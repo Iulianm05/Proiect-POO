@@ -38,7 +38,6 @@ void competition::adauga_echipe() {
     }
 
     std::string nume_echipa;
-    int nr_jucatori;
     int goluri;
     std::string nume_antrenor;
     std::string nume_jucator;
@@ -46,14 +45,14 @@ void competition::adauga_echipe() {
     int ovv;
     std::string pozitie;
     std::vector<player> p;
-    while(fin>>nume_echipa>>nr_jucatori>>goluri>>nume_antrenor>>abilitate){
+    while(fin>>nume_echipa>>goluri>>nume_antrenor>>abilitate){
         while(fin>>nume_jucator>>ovv>>pozitie&&nume_jucator!="&")
             p.push_back(player{nume_jucator,ovv,pozitie});
         std::shared_ptr<coach> c;
         if(abilitate==1)
             c = offensive_coach(nume_antrenor).clone() ;
         else if(abilitate==2) c = defensive_coach(nume_antrenor).clone() ;
-        teams.push_back(team{nume_echipa,goluri,c,p,0});
+        teams.push_back(team{nume_echipa,c,p,0});
         p.clear();
     }
 

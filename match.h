@@ -16,6 +16,7 @@ class match {
     team away_team{};
     int home_goals=0;
     int away_goals=0;
+    void marcare_gol(team &home, int i);
 public:
     match();
     explicit match(const team &home_team, const team &away_team);

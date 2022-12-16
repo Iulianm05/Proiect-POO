@@ -3,7 +3,6 @@
 //
 
 #include "match.h"
-
 match::match()=default;
 
 
@@ -52,9 +51,11 @@ std::ostream &operator<<(std::ostream &os, const match &match_) {
 }
 
 void meci(team &home_team_, team &away_team_, match &meci_) {
-    int goal_home_team=30; //probabilitate de a marca gol echipa in timpul unei ocazii
-    int goal_away_team=39;
-    int draw=30;
+    int goal_home_team=25; //probabilitate de a marca gol echipa in timpul unei ocazii
+    int goal_away_team=25;
+    int draw=50;
+    int ATT=60;
+    int MID=30;
     //daca diferenta de rating dintre echipe este mai mica decat 10 atunci probabilitatea de a marca a echipei cu raatingul mai mare va creste cu 2*diferenta iar restul vor scadea cu diferenta
     //altfel probabilitatea de a marca a echipei cu ratingul mai mare va creste cu 20
     //daca rating-urile sunt egale atunci prob. de a nu se marca gol la o anumita faza creste cu +4
@@ -85,13 +86,62 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
 
     for(int i=1;i<=ocazii;i++)
     {
-        int rand_number=rand()%99+1;
+        int rand_number=rand()%100+1;
         if(rand_number<=goal_home_team) {
             meci_.set_gol_h(meci_.getHomeGoals() + 1);
+            int rand_player=rand()%100+1;
+            int indice;
+            if(rand_player<=ATT){
+                indice=0;
+                meci_.marcare_gol(home_team_,indice);
+            }else if(rand_player>ATT && rand_player<=ATT+MID){
+                    indice=3;
+                    meci_.marcare_gol(home_team_,indice);
+            }
+            else {
+                const int p1=25;
+                const int p2=25;
+                const int p3=25;
+                int rp=rand()%100+1;
+                if(rp<=p1)
+                    home_team_.getPlayers()[6].setGoluri(home_team_.getPlayers()[6].getGoluri()+1);
+                else if(rp>p1 && rp<=p1+p2){
+                    home_team_.getPlayers()[7].setGoluri(home_team_.getPlayers()[7].getGoluri()+1);
+                }
+                else if (rp > p1 + p2 && rp <= p1 + p2 + p3) {
+                    home_team_.getPlayers()[8].setGoluri(home_team_.getPlayers()[8].getGoluri() + 1);
+                } else home_team_.getPlayers()[9].setGoluri(home_team_.getPlayers()[9].getGoluri() + 1);
+            }
 
         }
-        else if(rand_number>goal_home_team+draw)
-                meci_.set_gol_a(meci_.getAwayGoals()+1);
+        else if(rand_number>goal_home_team+draw){
+            meci_.set_gol_a(meci_.getAwayGoals()+1);
+            int rand_player=rand()%100+1;
+            int indice;
+            if(rand_player<=ATT){
+                indice=0;
+                meci_.marcare_gol(away_team_,indice);
+            }else if(rand_player>ATT && rand_player<=ATT+MID){
+                indice=3;
+                meci_.marcare_gol(away_team_,indice);
+            }
+            else {
+                const int p1=25;
+                const int p2=25;
+                const int p3=25;
+                int rp=rand()%100+1;
+                if(rp<=p1)
+                    away_team_.getPlayers()[6].setGoluri(away_team_.getPlayers()[6].getGoluri()+1);
+                else if(rp>p1 && rp<=p1+p2){
+                    away_team_.getPlayers()[7].setGoluri(away_team_.getPlayers()[7].getGoluri()+1);
+                }
+                else if (rp > p1 + p2 && rp <= p1 + p2 + p3) {
+                    away_team_.getPlayers()[8].setGoluri(away_team_.getPlayers()[8].getGoluri() + 1);
+                } else away_team_.getPlayers()[9].setGoluri(away_team_.getPlayers()[9].getGoluri() + 1);
+            }
+
+        }
+
     }
     home_team_.setNrGoluri(home_team_.getNrGoluri()+meci_.getHomeGoals());
     away_team_.setNrGoluri(away_team_.getNrGoluri()+meci_.getAwayGoals());
@@ -115,7 +165,7 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
         int x=away_team_.getPuncte()+3;
         away_team_.setPuncte(x);
     }
-    std::cout<<meci_;
+    //std::cout<<meci_;
 }
 
 int match::getHomeGoals() const {
@@ -125,3 +175,17 @@ int match::getHomeGoals() const {
 int match::getAwayGoals() const {
     return away_goals;
 }
+
+void match::marcare_gol(team &home, int i) {
+    const int p1=33;
+    const int p2=33;
+    int rp=rand()%99+1;
+    if(rp<=p1)
+        home.getPlayers()[i].setGoluri(home.getPlayers()[i].getGoluri()+1);
+    else if(rp>p1 && rp<=p1+p2){
+        home.getPlayers()[i+1].setGoluri(home.getPlayers()[i+1].getGoluri()+1);
+    }
+    else home.getPlayers()[i+2].setGoluri(home.getPlayers()[i+2].getGoluri()+1);
+}
+
+

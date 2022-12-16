@@ -30,9 +30,9 @@ int main() {
     std::shared_ptr<coach> c = offensive_coach("Pep Guardiola").clone();
     std::shared_ptr<coach> c22 = offensive_coach("Dica").clone();
     std::shared_ptr<coach> c33 = defensive_coach("Petrescu").clone();
-    team t("Liverpool",100,c,pls,0);
-    team t2("Manchester City",100,c22,pls,0);
-    team t3("Manchester United", 88,c33,pls,0);
+    team t("Liverpool",c,pls,0);
+    team t2("Manchester City",c22,pls,0);
+    team t3("Manchester United",c33,pls,0);
     std::vector<team> echipe;
     echipe.push_back(t);
     echipe.push_back(t2);
@@ -70,9 +70,9 @@ int main() {
                 contor++;
 
             }
-//        for(int i=0; i<contor; i++){
-//            std::cout<<meciuri[i];
-//        }
+        for(int i=0; i<contor; i++){
+            std::cout<<meciuri[i];
+        }
         std::cout<<meciuri[0].getHome_team()<<" "<<meciuri[0].getAway_team()<<std::endl;
         sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
         std::cout<<"==============================\n";
@@ -96,14 +96,19 @@ int main() {
         c33->getVarsta();
         match meci1(c3.getTeams()[0],c3.getTeams()[1]);
         meci(c3.getTeams()[0],c3.getTeams()[1],meci1);
-        std::cout<<meci1;
+        //std::cout<<meci1;
         std::cout<<"Numarul de jucatori din campionat: "<<player::getId()<<std::endl;
+        std::cout<<c3.getTeams()[0].getNameTeam()<<std::endl;
+        for (size_t i=0;i<c3.getTeams()[0].getPlayers().size();i++){
+            std::cout<<c3.getTeams()[0].getPlayers()[i].getNumePlayer()<<" are: "<<c3.getTeams()[0].getPlayers()[i].getGoluri()<<" goluri"<<std::endl;
+        }
     }
     catch(eroare_competitie &err){
         std::cout<<err.what()<<std::endl;
     }catch(eroare_meci &err){
         std::cout<<err.what()<<std::endl;
     }
+
 
     return 0;
 }
