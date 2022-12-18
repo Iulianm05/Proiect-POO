@@ -12,104 +12,123 @@
 
 
 
-
- bool comparator(const team &a, const team &b) {
+bool comparator(const team &a, const team &b) {
     return a.getPuncte()>b.getPuncte();
 }
-int main() {
-    srand(time(nullptr));
-    atribute at(90,72,90,80,99);
-    player p1("Lionel Messi",92, "Left Winger",36,at);
-    player p2("CR7",92, "Left Winger",36,at);
-    p1.calc_value();
-    std::vector<player> pls;
-    pls.push_back(p1);
-    pls.push_back(p2);
-    try{
-    competition c1("Premier League","England");
-    std::shared_ptr<coach> c = offensive_coach("Pep Guardiola").clone();
-    std::shared_ptr<coach> c22 = offensive_coach("Dica").clone();
-    std::shared_ptr<coach> c33 = defensive_coach("Petrescu").clone();
-    team t("Liverpool",c,pls,0);
-    team t2("Manchester City",c22,pls,0);
-    team t3("Manchester United",c33,pls,0);
-    std::vector<team> echipe;
-    echipe.push_back(t);
-    echipe.push_back(t2);
-    echipe.push_back(t3);
-    c1.adauga_echipe(echipe);
-    competition c2;
-    competition comp2(c1);
-    c2=c1;
-    competition c3("Premier League","");
-    //c3.adauga_echipe();
-    std::cout<<"Nume competite c2:"<<c2.getComName()<<std::endl;
-    std::cout<<"==================="<<std::endl;
-    std::cout<<p1.getGoluri();
-    std::cout<<"==================="<<std::endl;
-    p1.setGoluri(130);
-    std::cout<<p1.getGoluri()<<std::endl;
-    std::cout<<c1;
-    std::cout<<"==================="<<std::endl;
-    std::cout<<p1;
-    std::cout<<"==================="<<std::endl;
-    std::cout<<at;
-    std::cout<<t;
-    std::cout<<"==================="<<std::endl;
-    std::cout<<*c;
-    std::cout<<"===================="<<std::endl;
-    std::cout<<c3;
+bool comparator_jucatori(const player &a, const player &b) {
+    return a.getGoluri()>b.getGoluri();
+}
+
+void meniu(){
+    std::cout<<"Daca doriti sa afisati informatiile echipelor din campionat tastati tasta 1.\n";
+    std::cout<<"Daca doriti sa simulati meciurile din campionat apasati tasta 2.\n";
+    std::cout<<"Daca doriti sa iesiti din aplicatie apasati tasta 0.\n";
+}
+void afisare_meciuri(const std::vector<match> &meciuri,int contor){
+    for(int i=0; i<contor; i++)
+        std::cout<<meciuri[i];
+}
+void afisare_clasament(competition &campionat){
+    sort(campionat.getTeams().begin(),campionat.getTeams().end(), &comparator);
+    std::cout<<"\n======Clasament======\n";
+    for(size_t i=0;i<campionat.getTeams().size();i++){
+        std::cout<<i+1<<"."<<campionat.getTeams()[i].getNameTeam()<<" are :"<<campionat.getTeams()[i].getPuncte()<<" puncte\n";
+    }
+}
+void continuare(int &tasta){
+    std::cout<<"Pentru iesire folositi tasta 0, iar pentru a reveni la meniu apasati 3\n";
+    std::cin>>tasta;
+}
+void afisare_jucatori(competition &campionat){
+    for(size_t i = 0; i<campionat.getTeams().size();i++){
+        std::cout<<"\nMARCATORI "<<campionat.getTeams()[i].getNameTeam()<<": \n\n";
+        for(size_t j = 0; j<campionat.getTeams()[i].getPlayers().size();j++)
+            std::cout<<campionat.getTeams()[i].getPlayers()[j].getId()<<". "<<campionat.getTeams()[i].getPlayers()[j].getNumePlayer()<<" a marcat "<<campionat.getTeams()[i].getPlayers()[j].getGoluri()<<" goluri\n";
+    }
+
+}
+void afisare_total_jucatori(competition &campionat) {
+    std::vector<player> jucatori;
+    for(size_t i = 0; i<campionat.getTeams().size();i++){
+        for(size_t j = 0; j<campionat.getTeams()[i].getPlayers().size();j++)
+            jucatori.push_back(campionat.getTeams()[i].getPlayers()[j]);
+        sort(jucatori.begin(),jucatori.end(), &comparator_jucatori);
+    }
+    std::cout<<"In total sunt "<<player::getID_max()<<" jucatori.\n";
+    for(size_t i = 0; i<jucatori.size();i++){
+            std::cout<<jucatori[i].getNumePlayer()<<" are "<<jucatori[i].getGoluri()<<" goluri \n";
+    }
+}
+void optiune_1(){
+    competition campionat{"Premier League","Anglia"};
+    std::cout<<campionat;
+}
+void optiune_2(){
+    competition campionat{"Premier League","Anglia"};
+    std::vector<match> meciuri;
     int contor=0;
 
+        for (size_t i = 0; i < campionat.getTeams().size(); i++)
+            for (size_t j = i + 1; j < campionat.getTeams().size(); j++) {
+                meciuri.push_back(match(campionat.getTeams()[i], campionat.getTeams()[j]));
+                meci(campionat.getTeams()[i], campionat.getTeams()[j], meciuri[contor++]);
+            }
+        for (size_t i = 0; i < campionat.getTeams().size(); i++)
+            for (size_t j = i + 1; j < campionat.getTeams().size(); j++) {
+                meciuri.push_back(match(campionat.getTeams()[j], campionat.getTeams()[i]));
+                meci(campionat.getTeams()[j], campionat.getTeams()[i], meciuri[contor++]);
+            }
 
-        std::vector <match> meciuri;
-        for(size_t i=0; i<c3.getTeams().size()-1;i++)
-            for(size_t j=i+1;j<c3.getTeams().size();j++){
-                meciuri.push_back(match(c3.getTeams()[i],c3.getTeams()[j]));
-                meci(c3.getTeams()[i],c3.getTeams()[j],meciuri[contor]);
-                contor++;
+    std::cout<<"Doriti sa afisati meciurile? 1(Da) \n";
+    std::cout<<"Doriti sa afisati clasamentul? 2(Da)\n";
+    int decizie=0;
+    std::cin>>decizie;
+    if(decizie==1){
+        afisare_meciuri(meciuri,contor);
+    }
+    if(decizie==2){
+        afisare_clasament(campionat);
+        std::cout<<"Doriti sa afisati jucatorii echipelor si golurile date de acestia in meciurile simulate? 3(Da)\n";
+        std::cout<<"Doriti sa afisati topul marcatorilor ? 4(Da)\n";
+        std::cin>>decizie;
+        if(decizie==3){
+            afisare_jucatori(campionat);
+        }
+        if(decizie==4){
+            afisare_total_jucatori(campionat);
+        }
+
+    }
+
+}
+
+
+
+int main() {
+    srand(time(nullptr));
+    int tasta=3;
+    while(tasta!=0){
+        if(tasta==3)
+            meniu();
+        std::cin>>tasta;
+        try{
+            if(tasta==1){
+                optiune_1();
+                continuare(tasta);
 
             }
-        for(int i=0; i<contor; i++){
-            std::cout<<meciuri[i];
+            if(tasta==2){
+                optiune_2();
+                continuare(tasta);
+            }
+        }catch(eroare_competitie &err){
+            std::cout<<err.what()<<std::endl;
         }
-        std::cout<<meciuri[0].getHome_team()<<" "<<meciuri[0].getAway_team()<<std::endl;
-        sort(c3.getTeams().begin(),c3.getTeams().end(),&comparator);
-        std::cout<<"==============================\n";
-        std::cout<<"CLASAMENT\n";
-        std::cout<<"==============================\n";
-        for(size_t i=0;i<c3.getTeams().size();i++){
-            std::cout<<c3.getTeams()[i].getNameTeam()<<" are :"<<c3.getTeams()[i].getPuncte()<<" puncte\n";
+        catch(eroare_meci &err){
+            std::cout<<err.what()<<std::endl;
         }
-        std::cout<<c3;
-        competition competitie("Premier League","Anglia");
-        //competitie.adauga_echipe();
-        std::cout<<competitie;
-        for(size_t i=0;i<competitie.getTeams().size();i++) {
-            std::cout << competitie.getTeams()[i].getRating() << std::endl;
-            std::cout<<*competitie.getTeams()[i].getCoach1();
-            //competitie.getTeams()[i].getCoach1()->boost_echipa();
-        }
-        defensive_coach def("123",0,9);
-        def.getAbilitateDefensiva();
-        std::cout<<*std::shared_ptr<coach>(c33);
-        c33->getVarsta();
-        match meci1(c3.getTeams()[0],c3.getTeams()[1]);
-        meci(c3.getTeams()[0],c3.getTeams()[1],meci1);
-        //std::cout<<meci1;
-        std::cout<<"Numarul de jucatori din campionat: "<<player::getId()<<std::endl;
-        std::cout<<c3.getTeams()[0].getNameTeam()<<std::endl;
-        for (size_t i=0;i<c3.getTeams()[0].getPlayers().size();i++){
-            std::cout<<c3.getTeams()[0].getPlayers()[i].getNumePlayer()<<" are: "<<c3.getTeams()[0].getPlayers()[i].getGoluri()<<" goluri"<<std::endl;
-        }
-    }
-    catch(eroare_competitie &err){
-        std::cout<<err.what()<<std::endl;
-    }catch(eroare_meci &err){
-        std::cout<<err.what()<<std::endl;
-    }
 
-
+    }
 
     return 0;
 }

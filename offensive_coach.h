@@ -4,7 +4,7 @@
 #include "coach.h"
 
 class offensive_coach:public coach {
-    int abilitate_ofensiva{};
+    int abilitate_ofensiva{2};
     std::string formatie{};
     void afisare(std::ostream &os) const override;
 public:

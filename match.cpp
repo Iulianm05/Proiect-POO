@@ -39,8 +39,8 @@ const team &match::getAway_team() const {
 //}
 
 std::ostream &operator<<(std::ostream &os, const match &match_) {
-    os << "home_team: " << match_.home_team.getNameTeam() << " away_team: " << match_.away_team.getNameTeam() << " home_goals: " << match_.home_goals
-       << " away_goals: " << match_.away_goals<<std::endl;
+    os << match_.getHome_team().getNameTeam() << " vs " << match_.getAway_team().getNameTeam() << " scor: " << match_.home_goals
+       << " - " << match_.away_goals<<std::endl;
     return os;
 }
 
@@ -139,7 +139,8 @@ void meci(team &home_team_, team &away_team_, match &meci_) {
     }
     home_team_.setNrGoluri(home_team_.getNrGoluri()+meci_.getHomeGoals());
     away_team_.setNrGoluri(away_team_.getNrGoluri()+meci_.getAwayGoals());
-    std::cout<<"Prob: \n"<<"1: "<<goal_home_team<<" x: "<<draw<<" 2:"<<goal_away_team<<std::endl;
+    //std::cout<<home_team_.getNameTeam()<<" vs "<<away_team_.getNameTeam()<<std::endl;
+    //std::cout<<"Prob: \n"<<"1: "<<goal_home_team<<" x: "<<draw<<" 2:"<<goal_away_team<<std::endl;
     if(meci_.getHomeGoals()>meci_.getAwayGoals())
     {
         int x=home_team_.getPuncte()+3;

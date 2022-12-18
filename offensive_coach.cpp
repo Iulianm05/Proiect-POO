@@ -16,9 +16,9 @@ std::shared_ptr<coach> offensive_coach::clone() const {
 
 void offensive_coach::boost_echipa(int &gol_boost, int &draw, int &gol_a, int &ocazii) const {
    // std::cout<<"Boost ofensiv!\n";
-    gol_boost=gol_boost+4;
-    draw=draw-2;
-    gol_a=gol_a-2;
+    gol_boost=gol_boost+2*abilitate_ofensiva;
+    draw=draw-abilitate_ofensiva;
+    gol_a=gol_a-abilitate_ofensiva;
     ocazii=ocazii+2;
 
 }

@@ -24,10 +24,10 @@ private:
 
     const std::string &getComName() const;
 
-    void  adauga_echipe(std::vector<team> t);
+    //void  adauga_echipe(std::vector<team> t);
 
     friend std::ostream& operator<<(std::ostream& os, const competition& cmp);
-    std::vector<team> &getTeams() ;
+    std::vector<team> &getTeams();
 };
 
 

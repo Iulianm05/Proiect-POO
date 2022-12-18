@@ -7,7 +7,7 @@
 #include "coach.h"
 
 class defensive_coach:public coach {
-    int abilitate_defensiva{};
+    int abilitate_defensiva{5};
 
     void afisare(std::ostream &os) const override;
 public:

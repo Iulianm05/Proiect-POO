@@ -3,14 +3,14 @@
 #include "player.h"
 
 player::player() = default;
-int player::ID=0;
+int player::ID_max=0;
 player::player(const std::string &nume, int ovv, const std::string &position,int varsta, const atribute &atributes_){
     this->nume_player=nume;
     this->Overall=ovv;
     this->position=position;
     this->varsta=varsta;
     this->atributes=atributes_;
-    ID++;
+    id=++ID_max;
 }
 
 void player::calc_value() {
@@ -35,7 +35,7 @@ player::~player() {
     //std::cout<<"dest player\n";
 }
 
-int player::getGoluri() {
+int player::getGoluri() const {
     return goluri;
 }
 
@@ -51,6 +51,11 @@ const std::string &player::getNumePlayer() const {
     return nume_player;
 }
 
-int player::getId() {
-    return ID;
+int player::getID_max() {
+    return ID_max;
 }
+
+int player::getId() const {
+    return id;
+}
+

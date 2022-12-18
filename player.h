@@ -11,7 +11,8 @@ class player {
     int Overall=0;
     int goluri=0;
     int varsta{};
-    static int ID;
+    int id;
+    static int ID_max;
     std::string position;
     atribute atributes;
     int value=0;
@@ -21,13 +22,15 @@ public:
     player();
     player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
-    int getGoluri();
+    int getGoluri() const;
     void setGoluri(int goluri_);
     void calc_value();
 
-    static int getId();
+    static int getID_max();
 
     int getOverall() const;
+
+    int getId() const;
 
     ~player();
 };

@@ -26,11 +26,11 @@ competition::competition(const std::string &com_name, const std::string &country
 }
 
 
-void competition::adauga_echipe(std::vector<team> t) {
-    for(auto t1:t){
-        teams.push_back(t1);
-    }
-}
+//void competition::adauga_echipe(std::vector<team> t) {
+//    for(auto t1:t){
+//        teams.push_back(t1);
+//    }
+//}
 void competition::adauga_echipe() {
     std::ifstream fin("tastatura.txt");
     if(!fin){
