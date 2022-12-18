@@ -17,7 +17,7 @@ std::ostream& operator<<(std::ostream& os, const coach& coach1){
 coach::coach(std::string nume_,int varsta_):nume(std::move(nume_)), varsta(varsta_) {}
 
 std::ostream &operator<<(std::ostream &os, const coach &coach_) {
-    os<<"Antrenor:"<<coach_.nume;
+    os<<"Antrenor:"<<coach_.nume<<" varsta:"<<coach_.getVarsta();
     coach_.afisare(os);
     os<<"\n";
     return os;
