@@ -72,9 +72,9 @@ std::ostream& operator<<(std::ostream& os, const competition& cmp){
     return os;
 }
 
-const std::string &competition::getComName() const {
-    return com_name;
-}
+//const std::string &competition::getComName() const {
+//    return com_name;
+//}
 
  std::vector<team> &competition::getTeams() {
     return teams;

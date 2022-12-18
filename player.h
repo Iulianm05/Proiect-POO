@@ -11,7 +11,7 @@ class player {
     int Overall=0;
     int goluri=0;
     int varsta{};
-    int id;
+    int id{};
     static int ID_max;
     std::string position;
     atribute atributes;

@@ -22,7 +22,7 @@ private:
         competition(const std::string &com_name, const std::string &country);// constr init cu param
         competition &operator=(const competition& other_competition);
 
-    const std::string &getComName() const;
+    //const std::string &getComName() const;
 
     //void  adauga_echipe(std::vector<team> t);
 

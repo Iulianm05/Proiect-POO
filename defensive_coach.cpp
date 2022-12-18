@@ -11,7 +11,7 @@ int defensive_coach::getAbilitateDefensiva() const {
 }
 
 void defensive_coach::afisare(std::ostream &os) const {
-    os<<" Stil defensiv, abilitate defensiva:"<<abilitate_defensiva<<std::endl;
+    os<<" Stil defensiv, abilitate defensiva:"<<getAbilitateDefensiva()<<std::endl;
 }
 
 std::shared_ptr<coach> defensive_coach::clone() const {

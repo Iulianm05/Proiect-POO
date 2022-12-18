@@ -4,13 +4,14 @@
 
 player::player() = default;
 int player::ID_max=0;
-player::player(const std::string &nume, int ovv, const std::string &position,int varsta, const atribute &atributes_){
+player::player(const std::string &nume, int ovv, const std::string &position,int varsta, const atribute &atributes_ ){
     this->nume_player=nume;
     this->Overall=ovv;
     this->position=position;
     this->varsta=varsta;
     this->atributes=atributes_;
     id=++ID_max;
+    calc_value();
 }
 
 void player::calc_value() {
