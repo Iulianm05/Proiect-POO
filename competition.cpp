@@ -31,6 +31,8 @@ competition::competition(const std::string &com_name, const std::string &country
 //        teams.push_back(t1);
 //    }
 //}
+
+
 void competition::adauga_echipe() {
     std::ifstream fin("tastatura.txt");
     if(!fin){
@@ -49,9 +51,12 @@ void competition::adauga_echipe() {
         while(fin>>nume_jucator>>ovv>>pozitie&&nume_jucator!="&")
             p.push_back(player{nume_jucator,ovv,pozitie});
         std::shared_ptr<coach> c;
-        if(abilitate==1)
+        if(abilitate==1){
             c = offensive_coach(nume_antrenor).clone() ;
-        else if(abilitate==2) c = defensive_coach(nume_antrenor).clone() ;
+        }
+        else if(abilitate==2){
+            c = defensive_coach(nume_antrenor).clone() ;
+        }
         teams.push_back(team{nume_echipa,c,p,0});
         p.clear();
     }

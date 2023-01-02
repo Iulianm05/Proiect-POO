@@ -23,4 +23,8 @@ void offensive_coach::boost_echipa(int &gol_boost, int &draw, int &gol_a, int &o
 
 }
 
+int offensive_coach::getAbilitateOfensiva() const {
+    return abilitate_ofensiva;
+}
+
 

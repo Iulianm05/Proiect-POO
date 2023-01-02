@@ -8,6 +8,8 @@
 #include <iostream>
 #include <fstream>
 #include "exceptions.h"
+#include "offensive_coach.h"
+
 class competition {
         std::string com_name{};
 

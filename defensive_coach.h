@@ -8,13 +8,13 @@
 
 class defensive_coach:public coach {
     int abilitate_defensiva{5};
-
     void afisare(std::ostream &os) const override;
 public:
     int getAbilitateDefensiva() const;
-    explicit defensive_coach(const std::string &nume1,int varsta1=0, int abilitate_defensiva=0);
+    explicit defensive_coach(const std::string &nume1,int varsta1=0, int abilitate_defensiva=5);
     std::shared_ptr<coach> clone() const override;
     void boost_echipa(int &gol_boost, int &draw, int &gol_a, int &ocazii) const override;
+
 };
 
 

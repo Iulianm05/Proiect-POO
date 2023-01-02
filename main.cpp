@@ -38,6 +38,10 @@ void afisare_clasament(competition &campionat){
 void continuare(int &tasta){
     std::cout<<"Pentru iesire folositi tasta 0, iar pentru a reveni la meniu apasati 3\n";
     std::cin>>tasta;
+    if(tasta!=0 || tasta!=3){
+        std::cout<<"Tasta invalida!\n";
+        tasta=0;
+    }
 }
 void afisare_jucatori(competition &campionat){
     for(size_t i = 0; i<campionat.getTeams().size();i++){
@@ -59,9 +63,27 @@ void afisare_total_jucatori(competition &campionat) {
             std::cout<<jucatori[i].getNumePlayer()<<" are "<<jucatori[i].getGoluri()<<" goluri \n";
     }
 }
+
+void abilitati_antrenori(competition &campionat){
+    for(size_t i=0; i<campionat.getTeams().size(); i++) {
+        auto co = std::dynamic_pointer_cast<offensive_coach>(campionat.getTeams()[i].getCoach1());
+        if (co != nullptr) {
+            std::cout << "Nume: " << co->get_name() << " abilitate ofensiva: " << co->getAbilitateOfensiva() << "\n";
+
+        } else {
+            auto co2 = std::dynamic_pointer_cast<defensive_coach>(campionat.getTeams()[i].getCoach1());
+            if (co2 != nullptr)
+                std::cout << "Nume: " << co2->get_name() << " abilitate defensiva: " << co2->getAbilitateDefensiva()
+                          << "\n";
+        }
+    }
+
+}
 void optiune_1(){
     competition campionat{"Premier League","Anglia"};
     std::cout<<campionat;
+    abilitati_antrenori(campionat);
+
 }
 void optiune_2(){
     competition campionat{"Premier League","Anglia"};
@@ -86,19 +108,22 @@ void optiune_2(){
     if(decizie==1){
         afisare_meciuri(meciuri,contor);
     }
-    if(decizie==2){
-        afisare_clasament(campionat);
-        std::cout<<"Doriti sa afisati jucatorii echipelor si golurile date de acestia in meciurile simulate? 3(Da)\n";
-        std::cout<<"Doriti sa afisati topul marcatorilor ? 4(Da)\n";
-        std::cin>>decizie;
+    else
+        if(decizie==2){
+            afisare_clasament(campionat);
+            std::cout<<"Doriti sa afisati jucatorii echipelor si golurile date de acestia in meciurile simulate? 3(Da)\n";
+            std::cout<<"Doriti sa afisati topul marcatorilor ? 4(Da)\n";
+            std::cin>>decizie;
         if(decizie==3){
             afisare_jucatori(campionat);
         }
-        if(decizie==4){
-            afisare_total_jucatori(campionat);
-        }
+        else
+            if(decizie==4){
+                afisare_total_jucatori(campionat);
+            }
 
-    }
+        }
+        else std::cout<<"Tasta invalida!\n";
 
 }
 
@@ -117,10 +142,16 @@ int main() {
                 continuare(tasta);
 
             }
-            if(tasta==2){
-                optiune_2();
-                continuare(tasta);
-            }
+            else
+                if(tasta==2){
+                    optiune_2();
+                    continuare(tasta);
+                }else{
+                    if(tasta==0)
+                        break;
+                    else
+                        std::cout<<"Tasta invalida \n";
+                }
         }catch(eroare_competitie &err){
             std::cout<<err.what()<<std::endl;
         }
