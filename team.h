@@ -21,7 +21,7 @@ class team {
 public:
     team();
     ~team();
-    explicit team(const std::string &name,std::shared_ptr<coach> coach1_,std::vector<player> players_, int puncte=0,int buget_transferuri_=0);
+    explicit team(const std::string &name,std::shared_ptr<coach> coach1_,const std::vector<player> &players_, int puncte=0,int buget_transferuri_=0);
     std::string get_name();
     friend std::ostream& operator<<(std::ostream& os, const team& team1);
     int getPuncte() const;

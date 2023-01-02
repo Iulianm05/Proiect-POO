@@ -3,7 +3,7 @@
 #include "team.h"
 
 team::team(){}
-team::team(const std::string &name, std::shared_ptr<coach> coach1_,std::vector<player> players_, int puncte_, int buget_transferuri_) {
+team::team(const std::string &name,  std::shared_ptr<coach> coach1_,const std::vector<player> &players_, int puncte_, int buget_transferuri_) {
     this->name_team=name;
     this->coach1=coach1_;
     this->players=players_;
