@@ -38,7 +38,7 @@ void afisare_clasament(competition &campionat){
 void continuare(int &tasta){
     std::cout<<"Pentru iesire folositi tasta 0, iar pentru a reveni la meniu apasati 3\n";
     std::cin>>tasta;
-    if(tasta!=0 || tasta!=3){
+    if(tasta!=0 && tasta!=3){
         std::cout<<"Tasta invalida!\n";
         tasta=0;
     }
