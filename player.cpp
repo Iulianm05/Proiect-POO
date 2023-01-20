@@ -2,15 +2,16 @@
 #include <iostream>
 #include "player.h"
 
-player::player() = default;
+//player::player() = default;
 int player::ID_max=0;
-player::player(const std::string &nume, int ovv, const std::string &position,int varsta, const atribute &atributes_ ){
-    this->nume_player=nume;
-    this->Overall=ovv;
-    this->position=position;
-    this->varsta=varsta;
-    this->atributes=atributes_;
-    id=++ID_max;
+player::player(const std::string &nume, int ovv, const std::string &position_,int varsta_, const atribute &atributes_ ):nume_player(nume),Overall(ovv),varsta(varsta_),id(++ID_max),position(position_),atributes(atributes_)
+                                                                                                                        {
+//    this->nume_player=nume;
+//    this->Overall=ovv;
+//    this->position=position;
+//    this->varsta=varsta;
+//    this->atributes=atributes_;
+//
     calc_value();
 }
 
@@ -59,4 +60,17 @@ int player::getID_max() {
 int player::getId() const {
     return id;
 }
+
+player& player::operator=(player other) {
+    using std::swap;
+    swap(nume_player,other.nume_player);
+    swap(Overall,other.Overall);
+    swap(varsta,other.varsta);
+    swap(value,other.value);
+    swap(position,other.position);
+    swap(atributes,other.atributes);
+    return *this;
+}
+
+player::player(const player &other) =default;
 

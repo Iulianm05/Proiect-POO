@@ -11,7 +11,7 @@ class player {
     int Overall=0;
     int goluri=0;
     int varsta{};
-    int id{};
+    const int id;
     static int ID_max;
     std::string position;
     atribute atributes;
@@ -19,8 +19,10 @@ class player {
 public:
     const std::string &getNumePlayer() const;
 
-    player();
-    player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
+    //player();
+    explicit player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
+    player (const player &other);
+    player& operator=(player other);
     friend std::ostream& operator<<(std::ostream& os, const player& player1);
     int getGoluri() const;
     void setGoluri(int goluri_);
