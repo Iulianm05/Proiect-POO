@@ -7,13 +7,13 @@
 
 
 class player {
-    std::string nume_player;
+    std::string nume_player{};
     int Overall=0;
     int goluri=0;
     int varsta{};
-    const int id;
+    const int id{};
     static int ID_max;
-    std::string position;
+    std::string position{};
     atribute atributes;
     int value=0;
 public:
