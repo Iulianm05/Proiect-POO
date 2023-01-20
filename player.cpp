@@ -33,9 +33,7 @@ std::ostream& operator<<(std::ostream& os, const player& player1){
                                         player1.atributes.getDribling()<<std::endl;
     return os;
 }
-player::~player() {
-    //std::cout<<"dest player\n";
-}
+player::~player() =default;
 
 int player::getGoluri() const {
     return goluri;
@@ -66,6 +64,7 @@ player& player::operator=(player other) {
     swap(nume_player,other.nume_player);
     swap(Overall,other.Overall);
     swap(varsta,other.varsta);
+    swap(goluri,other.goluri);
     swap(value,other.value);
     swap(position,other.position);
     swap(atributes,other.atributes);

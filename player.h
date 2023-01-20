@@ -14,7 +14,7 @@ class player {
     const int id{};
     static int ID_max;
     std::string position{};
-    atribute atributes;
+    atribute atributes=atribute();
     int value=0;
 public:
     const std::string &getNumePlayer() const;
