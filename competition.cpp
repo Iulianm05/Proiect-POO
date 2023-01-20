@@ -34,7 +34,7 @@ competition::competition(const std::string &com_name, const std::string &country
 
 
 void competition::adauga_echipe() {
-    std::ifstream fin("tastatura.txt");
+    std::ifstream fin("echipe.txt");
     if(!fin){
         std::cout<<"Nu se poate deschide fisierul!\n";
     }

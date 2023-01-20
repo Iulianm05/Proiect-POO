@@ -1,0 +1,65 @@
+Liverpool 0 Jurgen_Klopp 1
+Salah 88 ATT
+Firmino 84 ATT
+Jota 83 ATT
+Fabinho 86 MID
+Thiago 82 MID
+Henderson 83 MID
+Van_Dijk 87 DEF
+Robertson 84 DEF
+Gomez 83 DEF
+Arnold 87 DEF
+Allison 89 GK
+& 0 &
+Manchester_City 0 Pep_Guardiola 1
+Haaland 90 ATT
+Foden 85 ATT
+Silva 83 ATT
+De_Bruyne 89 MID
+Rodri 83 MID
+Gundogan 82 MID
+Cancelo 83 DEF
+Laporte 84 DEF
+Akanji 81 DEF
+Walker 84 DEF
+Ederson 86 GK
+& 0 &
+Mancheste_United 0 Erik_ten_Hag 2
+Martial 82 ATT
+Rashford 82 ATT
+Ronaldo 90 ATT
+Eriksen 83 MID
+Casemiro 84 MID
+Fernandes 87 MID
+Shaw 79 DEF
+Martinez 80 DEF
+Lindelof 80 DEF
+Malacia 80 DEF
+De_Gea 82 GK
+& 0 &
+Arsenal 0 Mikel_Arteta 2
+Jesus 84 ATT
+Saka 84 ATT
+Martinelli 82 ATT
+Xhaka 79 MID
+Partey 81 MID
+Odegaard 85 MID
+Zinchenko 80 DEF
+Gabriel 78 DEF
+Saliba 81 DEF
+White 80 DEF
+Ramsdale 81 GK
+& 0 &
+Chelsea 0 Graham_Potter 1
+Aubameyang 86 ATT
+Mount 84 ATT
+Sterling 83 ATT
+Havertz 85 MID
+Jorginho 84 MID
+Kovacic 82 MID
+Azpilicueta 81 DEF
+Chalobah 82 DEF
+Silva 81 DEF
+Cucurella 82 DEF
+Mendy 82 GK
+& 0 &

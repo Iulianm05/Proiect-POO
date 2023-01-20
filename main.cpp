@@ -35,9 +35,9 @@ void afisare_clasament(competition &campionat){
         std::cout<<i+1<<"."<<campionat.getTeams()[i].getNameTeam()<<" are :"<<campionat.getTeams()[i].getPuncte()<<" puncte\n";
     }
 }
-void continuare(int &tasta){
+void continuare(int &tasta, std::ifstream &fin){
     std::cout<<"Pentru iesire folositi tasta 0, iar pentru a reveni la meniu apasati 3\n";
-    std::cin>>tasta;
+    fin>>tasta;
     if(tasta!=0 && tasta!=3){
         std::cout<<"Tasta invalida!\n";
         tasta=0;
@@ -70,23 +70,18 @@ void abilitati_antrenori(competition &campionat){
         if (co != nullptr) {
             std::cout << "Nume: " << co->get_name() << " abilitate ofensiva: " << co->getAbilitateOfensiva() << "\n";
 
-        } else {
-            auto co2 = std::dynamic_pointer_cast<defensive_coach>(campionat.getTeams()[i].getCoach1());
-            if (co2 != nullptr)
-                std::cout << "Nume: " << co2->get_name() << " abilitate defensiva: " << co2->getAbilitateDefensiva()
-                          << "\n";
         }
     }
 
 }
-void optiune_1(){
-    competition campionat{"Premier League","Anglia"};
+void optiune_1(competition &campionat){
+
     std::cout<<campionat;
     abilitati_antrenori(campionat);
 
 }
-void optiune_2(){
-    competition campionat{"Premier League","Anglia"};
+void optiune_2(competition &campionat,std::ifstream &fin){
+
     std::vector<match> meciuri;
     int contor=0;
 
@@ -104,7 +99,7 @@ void optiune_2(){
     std::cout<<"Doriti sa afisati meciurile? 1(Da) \n";
     std::cout<<"Doriti sa afisati clasamentul? 2(Da)\n";
     int decizie=0;
-    std::cin>>decizie;
+    fin>>decizie;
     if(decizie==1){
         afisare_meciuri(meciuri,contor);
     }
@@ -113,7 +108,7 @@ void optiune_2(){
             afisare_clasament(campionat);
             std::cout<<"Doriti sa afisati jucatorii echipelor si golurile date de acestia in meciurile simulate? 3(Da)\n";
             std::cout<<"Doriti sa afisati topul marcatorilor ? 4(Da)\n";
-            std::cin>>decizie;
+            fin>>decizie;
         if(decizie==3){
             afisare_jucatori(campionat);
         }
@@ -130,22 +125,24 @@ void optiune_2(){
 
 
 int main() {
+    std::ifstream fin ("tastatura.txt");
     srand(time(nullptr));
     int tasta=3;
+    competition campionat{"Premier League","Anglia"};
     while(tasta!=0){
         if(tasta==3)
             meniu();
-        std::cin>>tasta;
+        fin>>tasta;
         try{
             if(tasta==1){
-                optiune_1();
-                continuare(tasta);
+                optiune_1(campionat);
+                continuare(tasta,fin);
 
             }
             else
                 if(tasta==2){
-                    optiune_2();
-                    continuare(tasta);
+                    optiune_2(campionat,fin);
+                    continuare(tasta,fin);
                 }else{
                     if(tasta==0)
                         break;
