@@ -65,7 +65,7 @@ public:
         p.position=position;
         return *this;
     }
-    player_builder& atribute(atribute <int> &atribute){
+    player_builder& atribute(const atribute <int> &atribute){
         p.atributes=atribute;
         return *this;
     }
