@@ -17,7 +17,9 @@ class player {
     std::string position{};
     atribute<int> atributes=atribute<int>();
     int value=0;
+    friend class player_builder;
 public:
+    player()=default;
     const std::string &getNumePlayer() const;
     bool operator > (const player &other);
     //player();
@@ -36,6 +38,41 @@ public:
     int getId() const;
 
     ~player();
+};
+
+class player_builder{
+private:
+    player p;
+public:
+    player_builder()=default;
+    player_builder& Nume_player(const std::string &nume){
+        p.nume_player=nume;
+        return *this;
+    }
+    player_builder& Overall(int overall){
+        p.Overall=overall;
+        return *this;
+    }
+    player_builder& goluri(int goluri){
+        p.goluri=goluri;
+        return *this;
+    }
+    player_builder& varsta(int varsta){
+        p.varsta=varsta;
+        return *this;
+    }
+    player_builder& position(const std::string &position){
+        p.position=position;
+        return *this;
+    }
+    player_builder& atribute(atribute <int> &atribute){
+        p.atributes=atribute;
+        return *this;
+    }
+    player build(){
+        return p;
+    }
+
 };
 
 

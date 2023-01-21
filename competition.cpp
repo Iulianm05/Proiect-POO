@@ -48,8 +48,12 @@ void competition::adauga_echipe() {
     std::string pozitie;
     std::vector<player> p;
     while(fin>>nume_echipa>>goluri>>nume_antrenor>>abilitate){
-        while(fin>>nume_jucator>>ovv>>pozitie&&nume_jucator!="&")
-            p.push_back(player{nume_jucator,ovv,pozitie});
+        while(fin>>nume_jucator>>ovv>>pozitie&&nume_jucator!="&"){
+            player_builder pb;
+            player ply=pb.Nume_player(nume_jucator).Overall(ovv).position(pozitie).build();
+            p.push_back(ply);
+        }
+
         std::shared_ptr<coach> c;
         if(abilitate==1){
             c = offensive_coach(nume_antrenor).clone() ;
