@@ -24,6 +24,7 @@ public:
     explicit team(const std::string &name,std::shared_ptr<coach> coach1_,const std::vector<player> &players_, int puncte=0,int buget_transferuri_=0);
     std::string get_name();
     friend std::ostream& operator<<(std::ostream& os, const team& team1);
+    bool operator>(const team &other);
     int getPuncte() const;
     //team(const team &other);
     const std::string &getNameTeam() const;

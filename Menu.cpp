@@ -2,12 +2,9 @@
 
 #include "Menu.h"
 
-
-bool comparator(const team &a, const team &b) {
-    return a.getPuncte()>b.getPuncte();
-}
-bool comparator_jucatori(const player &a, const player &b) {
-    return a.getGoluri()>b.getGoluri();
+template<typename T>
+bool comparator( T &a, T &b) {
+    return a>b;
 }
 
 Menu &Menu::get_Menu() {
@@ -112,7 +109,7 @@ void Menu::afisare_total_jucatori() {
     for(size_t i = 0; i<campionat.getTeams().size();i++){
         for(size_t j = 0; j<campionat.getTeams()[i].getPlayers().size();j++)
             jucatori.push_back(campionat.getTeams()[i].getPlayers()[j]);
-        sort(jucatori.begin(),jucatori.end(), &comparator_jucatori);
+        sort(jucatori.begin(),jucatori.end(), comparator<player>);
     }
     std::cout<<"In total sunt "<<player::getID_max()<<" jucatori.\n";
     for(size_t i = 0; i<jucatori.size();i++){
@@ -121,7 +118,7 @@ void Menu::afisare_total_jucatori() {
 }
 
 void Menu::afisare_clasament() {
-    sort(campionat.getTeams().begin(),campionat.getTeams().end(), &comparator);
+    sort(campionat.getTeams().begin(),campionat.getTeams().end(), &comparator<team>);
     std::cout<<"\n======Clasament======\n";
     for(size_t i=0;i<campionat.getTeams().size();i++){
         std::cout<<i+1<<"."<<campionat.getTeams()[i].getNameTeam()<<" are :"<<campionat.getTeams()[i].getPuncte()<<" puncte\n";

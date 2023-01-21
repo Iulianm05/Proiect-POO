@@ -62,6 +62,12 @@ int team::getNrGoluri() const {
     return nr_goluri;
 }
 
+bool team::operator>(const team& other) {
+    if(puncte>other.puncte)
+        return true;
+    else return false;
+}
+
 //team::team(const team &other)=default;
 
 

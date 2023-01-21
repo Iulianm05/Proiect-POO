@@ -18,7 +18,7 @@ class player {
     int value=0;
 public:
     const std::string &getNumePlayer() const;
-
+    bool operator > (const player &other);
     //player();
     explicit player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
     player (const player &other);

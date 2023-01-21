@@ -71,5 +71,11 @@ player& player::operator=(player other) {
     return *this;
 }
 
+bool player::operator>(const player &other) {
+    if(goluri>other.goluri)
+        return true;
+    else return false;
+}
+
 player::player(const player &other) =default;
 
