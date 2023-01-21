@@ -4,6 +4,7 @@
 #define MAIN_CPP_PLAYER_H
 #include "atribute.h"
 #include <iostream>
+#include "atribute_impl.cpp"
 
 
 class player {
@@ -14,13 +15,13 @@ class player {
     const int id{};
     static int ID_max;
     std::string position{};
-    atribute atributes=atribute();
+    atribute<int> atributes=atribute<int>();
     int value=0;
 public:
     const std::string &getNumePlayer() const;
     bool operator > (const player &other);
     //player();
-    explicit player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute &atributes=atribute());
+    explicit player(const std::string &nume, int ovv, const std::string &position,int varsta=0,const atribute<int> &atributes=atribute<int>());
     player (const player &other);
     player& operator=(player other);
     friend std::ostream& operator<<(std::ostream& os, const player& player1);

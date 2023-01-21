@@ -5,28 +5,28 @@
 #include <string>
 #include <iostream>
 
-
+template<typename T>
 class atribute {
-    int attacking=0;
-    int defending=0;
-    int passing=0;
-    int Strength=0;
-    int dribling=0;
+    T attacking{};
+    T defending{};
+    T passing{};
+    T Strength{};
+    T dribling{};
 public:
-    atribute();
-    atribute(int a, int d, int p, int s, int drib);
+    //atribute();
+    explicit atribute(T a=10, T d=10, T p=10, T s=10, T drib=10);
 
-    int getAttacking() const;
+    T getAttacking() const;
 
-    int getDefending() const;
+    T getDefending() const;
 
-    int getPassing() const;
+    T getPassing() const;
 
-    int getStrength() const;
+    T getStrength() const;
 
-    int getDribling() const;
+    T getDribling() const;
 
-    friend std::ostream& operator<<(std::ostream& os, const atribute& atribute1);
+    //friend std::ostream& operator<<(std::ostream& os, const atribute<T>& atribute1);
     ~atribute();
 };
 

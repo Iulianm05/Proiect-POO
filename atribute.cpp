@@ -1,36 +1,37 @@
-//
-// Created by Marin Iulian on 10/26/2022.
-//
+
 
 #include "atribute.h"
-
-atribute::atribute() =default;
-atribute::atribute(int a, int d, int p, int s, int drib): attacking(a),defending(d),passing(p),Strength(s),dribling(drib){
+//template <typename T>
+//atribute<T>::atribute() =default;
+template <typename T>
+atribute<T>::atribute(T a, T d, T p,T s, T drib): attacking(a),defending(d),passing(p),Strength(s),dribling(drib){
 
     //std::cout<<"c attributes\n";
 }
-atribute::~atribute()=default;
-std::ostream& operator<<(std::ostream& os, const atribute& atribute1){
-    os<<"Atac: "<<atribute1.attacking<<", dribling: "<<atribute1.dribling<<", Strength: "<<atribute1.Strength<<", defending: "<<atribute1.defending<<", pase: "<<atribute1.passing<<std::endl;
-    return os;
-}
+template <typename T>
+atribute<T>::~atribute()=default;
 
-int atribute::getAttacking() const {
+//std::ostream& operator<< (std::ostream& os, const atribute<int>& atribute1){
+//    os<<"Atac: "<<atribute1.attacking<<", dribling: "<<atribute1.dribling<<", Strength: "<<atribute1.Strength<<", defending: "<<atribute1.defending<<", pase: "<<atribute1.passing<<std::endl;
+//    return os;
+//}
+template <typename T>
+T atribute<T>::getAttacking() const {
     return attacking;
 }
-
-int atribute::getDefending() const {
+template <typename T>
+T atribute<T>::getDefending() const {
     return defending;
 }
-
-int atribute::getPassing() const {
+template <typename T>
+T atribute<T>::getPassing() const {
     return passing;
 }
-
-int atribute::getStrength() const {
+template <typename T>
+T atribute<T>::getStrength() const {
     return Strength;
 }
-
-int atribute::getDribling() const {
+template <typename T>
+T atribute<T>::getDribling() const {
     return dribling;
 }

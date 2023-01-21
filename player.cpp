@@ -4,7 +4,7 @@
 
 //player::player() = default;
 int player::ID_max=0;
-player::player(const std::string &nume, int ovv, const std::string &position_,int varsta_, const atribute &atributes_ ):nume_player(nume),Overall(ovv),varsta(varsta_),id(++ID_max),position(position_),atributes(atributes_)
+player::player(const std::string &nume, int ovv, const std::string &position_,int varsta_, const atribute<int> &atributes_ ):nume_player(nume),Overall(ovv),varsta(varsta_),id(++ID_max),position(position_),atributes(atributes_)
                                                                                                                         {
 //    this->nume_player=nume;
 //    this->Overall=ovv;
